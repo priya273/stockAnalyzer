@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="saR-hi-Mbn">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Watch List-->
+        <scene sceneID="VXs-Rl-AbN">
+            <objects>
+                <tableViewController id="u76-XM-uRV" customClass="WatchListViewController" customModule="Stock_Analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2ma-0j-Sy5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="u76-XM-uRV" id="jc4-Bl-zhi"/>
+                            <outlet property="delegate" destination="u76-XM-uRV" id="L4i-YK-dHW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Watch List" id="jMw-ca-5fC"/>
+                    <connections>
+                        <segue destination="j9S-6M-7iX" kind="push" identifier="toDetailView" id="BbH-7R-ZIe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KS5-Ie-Fwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1187" y="58"/>
+        </scene>
+        <!--Stock Detail-->
+        <scene sceneID="7mf-1R-Pje">
+            <objects>
+                <viewController id="j9S-6M-7iX" customClass="DetailStockViewController" customModule="Stock_Analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tlN-n2-Vy0"/>
+                        <viewControllerLayoutGuide type="bottom" id="5H4-YJ-T7h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I88-Og-3fl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dVx-9o-h8v">
+                                <rect key="frame" x="0.0" y="298" width="600" height="37"/>
+                                <animations/>
+                            </pageControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-uB-qAA">
+                                <rect key="frame" x="0.0" y="335" width="600" height="216"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="o8W-IW-4Es" kind="embed" id="vwZ-lL-W2c"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-2Z-kL0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="271"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="Z5m-hf-8n9" kind="embed" identifier="toPageViewController" id="FBL-F5-XTh"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cFB-uB-qAA" firstAttribute="top" secondItem="dVx-9o-h8v" secondAttribute="bottom" id="1gf-Ts-drd"/>
+                            <constraint firstItem="cFB-uB-qAA" firstAttribute="leading" secondItem="I88-Og-3fl" secondAttribute="leading" id="28P-0b-GQS"/>
+                            <constraint firstAttribute="trailing" secondItem="cFB-uB-qAA" secondAttribute="trailing" id="54k-Lr-a0U"/>
+                            <constraint firstAttribute="trailing" secondItem="x1O-2Z-kL0" secondAttribute="trailing" id="9gv-zw-aAu"/>
+                            <constraint firstItem="dVx-9o-h8v" firstAttribute="trailing" secondItem="x1O-2Z-kL0" secondAttribute="trailing" id="G4u-oH-c62"/>
+                            <constraint firstItem="dVx-9o-h8v" firstAttribute="leading" secondItem="I88-Og-3fl" secondAttribute="leading" id="IZo-Qp-yXA"/>
+                            <constraint firstItem="5H4-YJ-T7h" firstAttribute="top" secondItem="dVx-9o-h8v" secondAttribute="bottom" constant="216" id="KX0-FR-cLj"/>
+                            <constraint firstItem="x1O-2Z-kL0" firstAttribute="top" secondItem="tlN-n2-Vy0" secondAttribute="bottom" id="Tbp-Z5-3Ne"/>
+                            <constraint firstItem="dVx-9o-h8v" firstAttribute="bottom" secondItem="x1O-2Z-kL0" secondAttribute="bottom" id="U6x-6n-JEs"/>
+                            <constraint firstItem="cFB-uB-qAA" firstAttribute="top" secondItem="x1O-2Z-kL0" secondAttribute="bottom" id="Ujj-wY-OvR"/>
+                            <constraint firstItem="cFB-uB-qAA" firstAttribute="leading" secondItem="I88-Og-3fl" secondAttribute="leading" id="XL7-yy-CR6"/>
+                            <constraint firstItem="5H4-YJ-T7h" firstAttribute="top" secondItem="cFB-uB-qAA" secondAttribute="bottom" id="hUc-pF-SL4"/>
+                            <constraint firstItem="cFB-uB-qAA" firstAttribute="leading" secondItem="I88-Og-3fl" secondAttribute="leadingMargin" id="kc0-lp-0Kn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cFB-uB-qAA" secondAttribute="trailing" id="rkT-lz-xic"/>
+                            <constraint firstItem="dVx-9o-h8v" firstAttribute="leading" secondItem="x1O-2Z-kL0" secondAttribute="leading" id="vEl-ZD-vj3"/>
+                            <constraint firstAttribute="trailing" secondItem="cFB-uB-qAA" secondAttribute="trailing" id="zvt-4V-bcn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1gf-Ts-drd"/>
+                                <exclude reference="XL7-yy-CR6"/>
+                                <exclude reference="kc0-lp-0Kn"/>
+                                <exclude reference="rkT-lz-xic"/>
+                                <exclude reference="zvt-4V-bcn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Stock Detail" id="D1L-bB-5gF"/>
+                    <connections>
+                        <outlet property="pageControlIcon" destination="dVx-9o-h8v" id="dj8-T7-kNk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wl-di-JkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="762"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="7ag-dW-pfe">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Z5m-hf-8n9" customClass="PageViewController" customModule="Stock_Analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="5qz-ia-71A" kind="push" identifier="toPageViewController" id="NOs-fV-nu6"/>
+                        <segue destination="8xQ-WC-YQT" kind="push" identifier="toSentimentalAnalysisChart" id="Erg-Fh-f7T"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAZ-wq-z43" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1359" y="644.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="X5V-iP-ovT">
+            <objects>
+                <viewController storyboardIdentifier="RealTimeStockChart" id="5qz-ia-71A" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MLf-Eq-EAb"/>
+                        <viewControllerLayoutGuide type="bottom" id="aOU-PE-kCE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SEb-hb-L9g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="271"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xFw-9k-GIT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugG-QH-IWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2120" y="852.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="c2c-OJ-Nk4">
+            <objects>
+                <viewController storyboardIdentifier="SentimentalAnalysisChart" id="8xQ-WC-YQT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="72W-XW-62i"/>
+                        <viewControllerLayoutGuide type="bottom" id="V7R-bE-1ad"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3by-hl-mdf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="271"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.95811232489999998" green="1" blue="0.35359799689999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GPS-mo-lfy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAG-Z2-P9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="450.5"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="g27-nV-JIr">
+            <objects>
+                <tabBarController id="saR-hi-Mbn" customClass="RootViewController" customModule="Stock_Analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Home" id="rkF-Ay-42l"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="quV-Iv-ptJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JDN-Mu-Shj" kind="relationship" relationship="viewControllers" id="pHS-Se-acb"/>
+                        <segue destination="5LD-bs-qxs" kind="relationship" relationship="viewControllers" id="BG4-UP-mS0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Mh-qx-9DS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="615"/>
+        </scene>
+        <!--Watch List-->
+        <scene sceneID="Fmi-ZY-Rdh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JDN-Mu-Shj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Watch List" image="bino" id="9gS-l9-j1E"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="04g-CJ-9qs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u76-XM-uRV" kind="relationship" relationship="rootViewController" id="IQG-zt-HoV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgb-vs-Jrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493" y="72"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="y6y-gE-UKj">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Search" storyboardName="Search" id="5LD-bs-qxs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="bzG-Dg-SwZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GtV-8t-RKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221.5" y="916"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FJ6-zZ-rlv">
+            <objects>
+                <viewController id="o8W-IW-4Es" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1b7-Lm-4x1"/>
+                        <viewControllerLayoutGuide type="bottom" id="z5y-Ux-4YP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ora-8a-blR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eD0-De-d73" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1369" y="1056"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bino" width="32" height="32"/>
+    </resources>
+</document>

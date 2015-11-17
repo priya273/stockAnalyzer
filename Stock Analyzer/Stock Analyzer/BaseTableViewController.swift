@@ -56,6 +56,7 @@ class BaseTableViewController: UITableViewController , NSFetchedResultsControlle
     }
     
 
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -142,5 +143,6 @@ class BaseTableViewController: UITableViewController , NSFetchedResultsControlle
     {
         return false;
     }
-
+    
+ 
 }

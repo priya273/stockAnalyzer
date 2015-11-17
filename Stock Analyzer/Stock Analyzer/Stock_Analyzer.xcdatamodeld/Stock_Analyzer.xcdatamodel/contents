@@ -3,14 +3,14 @@
     <entity name="Stock" representedClassName="Stock" syncable="YES">
         <attribute name="exchange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
         <relationship name="stockDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StockDetail" inverseName="stock" inverseEntity="StockDetail" syncable="YES"/>
     </entity>
     <entity name="StockDetail" syncable="YES">
         <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="stockDetail" inverseEntity="Stock" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Stock" positionX="-335" positionY="347" width="128" height="103"/>
+        <element name="Stock" positionX="-335" positionY="347" width="128" height="105"/>
         <element name="StockDetail" positionX="-54" positionY="18" width="128" height="58"/>
     </elements>
 </model>

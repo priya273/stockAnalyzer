@@ -27,6 +27,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
     var selectedType = -1;
     let searchType = ["Symbol", "Name"];
 
+  
     var delegate : updateSearchResultProtocol?
     
     override func viewDidLoad()
@@ -46,11 +47,9 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+     
     }
     
-    func insertNewObject(sender: AnyObject)
-    {
-            }
     
     override func didReceiveMemoryWarning()
     {
@@ -69,18 +68,28 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
  override    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
+        if(filteredTickerSymbols.isEmpty)
+        {
+            return 0
+        }
+        
         return filteredTickerSymbols.count
+     
     }
 
 
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
+    
         let cell = tableView.dequeueReusableCellWithIdentifier(AddStockTableCellIdentifier, forIndexPath: indexPath) as! AddStockTableCell;
         
-
+        
         // Configure the cell...
-        cell.symbolOrName = filteredTickerSymbols[indexPath.row];
-        cell.delegate = self;
+
+            cell.symbolOrName = filteredTickerSymbols[indexPath.row];
+            cell.delegate = self;
+
+        
         
         return cell
     }
@@ -129,7 +138,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
             JSON in
             
                 let data = JSON.data! as NSData;
-               print(JSON)
+               //print(JSON)
                 do
                 {
                 
@@ -150,6 +159,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
     
         }
   
+               tableView.reloadData();
     }
 
     func updateFilteredList(allResults: [String], search : String)

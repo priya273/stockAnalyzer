@@ -13,7 +13,54 @@
 		A33D74551C0B31540064E34D /* StockAnalyzer2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A33D74531C0B31540064E34D /* StockAnalyzer2.xcdatamodeld */; };
 		A33D74571C0B31540064E34D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33D74561C0B31540064E34D /* Assets.xcassets */; };
 		A33D745A1C0B31540064E34D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33D74581C0B31540064E34D /* LaunchScreen.storyboard */; };
+		A33D747C1C0C3B1A0064E34D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33D74771C0C3B110064E34D /* Charts.framework */; };
+		A33D747D1C0C3B1A0064E34D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33D74771C0C3B110064E34D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A33D74761C0C3B110064E34D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A33D74701C0C3B110064E34D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		A33D74781C0C3B110064E34D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A33D74701C0C3B110064E34D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		A33D747A1C0C3B110064E34D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A33D74701C0C3B110064E34D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		A33D747E1C0C3B1A0064E34D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A33D74701C0C3B110064E34D /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A33D74801C0C3B1A0064E34D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A33D747D1C0C3B1A0064E34D /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A33D74491C0B31540064E34D /* StockAnalyzer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockAnalyzer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +71,7 @@
 		A33D74561C0B31540064E34D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A33D74591C0B31540064E34D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A33D745B1C0B31540064E34D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33D74701C0C3B110064E34D /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../ios-charts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33D747C1C0C3B1A0064E34D /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +89,7 @@
 		A33D74401C0B31540064E34D = {
 			isa = PBXGroup;
 			children = (
+				A33D74701C0C3B110064E34D /* Charts.xcodeproj */,
 				A33D744B1C0B31540064E34D /* StockAnalyzer2 */,
 				A33D744A1C0B31540064E34D /* Products */,
 			);
@@ -67,6 +117,16 @@
 			path = StockAnalyzer2;
 			sourceTree = "<group>";
 		};
+		A33D74711C0C3B110064E34D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A33D74771C0C3B110064E34D /* Charts.framework */,
+				A33D74791C0C3B110064E34D /* Charts.framework */,
+				A33D747B1C0C3B110064E34D /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,10 +137,12 @@
 				A33D74451C0B31540064E34D /* Sources */,
 				A33D74461C0B31540064E34D /* Frameworks */,
 				A33D74471C0B31540064E34D /* Resources */,
+				A33D74801C0C3B1A0064E34D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A33D747F1C0C3B1A0064E34D /* PBXTargetDependency */,
 			);
 			name = StockAnalyzer2;
 			productName = StockAnalyzer2;
@@ -113,12 +175,42 @@
 			mainGroup = A33D74401C0B31540064E34D;
 			productRefGroup = A33D744A1C0B31540064E34D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A33D74711C0C3B110064E34D /* Products */;
+					ProjectRef = A33D74701C0C3B110064E34D /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A33D74481C0B31540064E34D /* StockAnalyzer2 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A33D74771C0C3B110064E34D /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = A33D74761C0C3B110064E34D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A33D74791C0C3B110064E34D /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = A33D74781C0C3B110064E34D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A33D747B1C0C3B110064E34D /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = A33D747A1C0C3B110064E34D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A33D74471C0B31540064E34D /* Resources */ = {
@@ -145,6 +237,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A33D747F1C0C3B1A0064E34D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = A33D747E1C0C3B1A0064E34D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A33D74501C0B31540064E34D /* Main.storyboard */ = {
@@ -251,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = StockAnalyzer2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.priya273.StockAnalyzer2;
@@ -262,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = StockAnalyzer2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.priya273.StockAnalyzer2;
@@ -288,6 +390,7 @@
 				A33D74601C0B31540064E34D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
     <entity name="Stock" representedClassName="Stock" syncable="YES">
+        <attribute name="change" optional="YES" transient="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="changePercent" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="exchange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="high" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lastPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="low" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="marketCap" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="stockDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StockDetail" inverseName="stock" inverseEntity="StockDetail" syncable="YES"/>
     </entity>
     <entity name="StockDetail" syncable="YES">
         <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="stockDetail" inverseEntity="Stock" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Stock" positionX="-335" positionY="347" width="128" height="105"/>
+        <element name="Stock" positionX="-335" positionY="347" width="128" height="225"/>
         <element name="StockDetail" positionX="-54" positionY="18" width="128" height="58"/>
     </elements>
 </model>

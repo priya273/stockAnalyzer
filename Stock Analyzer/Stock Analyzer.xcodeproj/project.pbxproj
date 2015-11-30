@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */; };
+		A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */; };
+		A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746B1C0BDD5A0064E34D /* Stock.swift */; };
+		A33D746F1C0C1C940064E34D /* fileOne.strings in Resources */ = {isa = PBXBuildFile; fileRef = A33D746E1C0C1C940064E34D /* fileOne.strings */; };
 		A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CD1681BE582D000E3B406 /* AppDelegate.swift */; };
 		A38CD16E1BE582D000E3B406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38CD16C1BE582D000E3B406 /* Main.storyboard */; };
 		A38CD1711BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A38CD16F1BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld */; };
@@ -17,7 +21,6 @@
 		A38CD1BD1BE5B20200E3B406 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CD1BC1BE5B20200E3B406 /* RootViewController.swift */; };
 		A38CD1BF1BE5B25F00E3B406 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CD1BE1BE5B25F00E3B406 /* WatchListViewController.swift */; };
 		A38CD1E01BE6E2D900E3B406 /* DetailStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CD1DF1BE6E2D900E3B406 /* DetailStockViewController.swift */; };
-		A3A4DA9E1BE85E06007F56EA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4DA9D1BE85E06007F56EA /* PageViewController.swift */; };
 		A3A4DACB1BE9EC6B007F56EA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4DAC21BE9EBF4007F56EA /* Alamofire.framework */; };
 		A3A4DACC1BE9EC6B007F56EA /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4DAC21BE9EBF4007F56EA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A4DAD21BE9EDA2007F56EA /* AddStockTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A4DAD11BE9EDA2007F56EA /* AddStockTableCell.xib */; };
@@ -30,8 +33,6 @@
 		A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */; };
 		A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */; };
 		A3FA71571BF8529B00CB4E79 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FA71561BF8529B00CB4E79 /* StockTableViewCell.xib */; };
-		A3FA71661BF9211A00CB4E79 /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71641BF9211A00CB4E79 /* Stock+CoreDataProperties.swift */; };
-		A3FA71671BF9211A00CB4E79 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71651BF9211A00CB4E79 /* Stock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockIInfoViewController.swift; sourceTree = "<group>"; };
+		A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A33D746B1C0BDD5A0064E34D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		A33D746E1C0C1C940064E34D /* fileOne.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = fileOne.strings; sourceTree = "<group>"; };
 		A38CD1651BE582D000E3B406 /* Stock Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stock Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38CD1681BE582D000E3B406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38CD16D1BE582D000E3B406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,7 +129,6 @@
 		A38CD1BC1BE5B20200E3B406 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A38CD1BE1BE5B25F00E3B406 /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		A38CD1DF1BE6E2D900E3B406 /* DetailStockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailStockViewController.swift; sourceTree = "<group>"; };
-		A3A4DA9D1BE85E06007F56EA /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		A3A4DAB91BE9EBF4007F56EA /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		A3A4DAD11BE9EDA2007F56EA /* AddStockTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddStockTableCell.xib; sourceTree = "<group>"; };
 		A3A4DAD51BE9F2D6007F56EA /* AddStockTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStockTableCell.swift; sourceTree = "<group>"; };
@@ -137,8 +141,6 @@
 		A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		A3FA714A1BF8459900CB4E79 /* Stock Analyzer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stock Analyzer-Bridging-Header.h"; sourceTree = "<group>"; };
 		A3FA71561BF8529B00CB4E79 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
-		A3FA71641BF9211A00CB4E79 /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A3FA71651BF9211A00CB4E79 /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +172,8 @@
 		A38CD15C1BE582D000E3B406 = {
 			isa = PBXGroup;
 			children = (
-				A3FA71641BF9211A00CB4E79 /* Stock+CoreDataProperties.swift */,
-				A3FA71651BF9211A00CB4E79 /* Stock.swift */,
+				A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */,
+				A33D746B1C0BDD5A0064E34D /* Stock.swift */,
 				A3A4DAB91BE9EBF4007F56EA /* Alamofire.xcodeproj */,
 				A38CD1671BE582D000E3B406 /* Stock Analyzer */,
 				A38CD17F1BE582D000E3B406 /* Stock AnalyzerTests */,
@@ -232,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A38CD1DF1BE6E2D900E3B406 /* DetailStockViewController.swift */,
-				A3A4DA9D1BE85E06007F56EA /* PageViewController.swift */,
+				A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */,
 			);
 			name = "Detail (page) View Controller";
 			sourceTree = "<group>";
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				A3A4DAE31BEA088D007F56EA /* SearchTabTableViewController.swift */,
+				A33D746E1C0C1C940064E34D /* fileOne.strings */,
 				A3A4DAE71BEB245C007F56EA /* UpdateSearchResultController.swift */,
 			);
 			name = "Search view Controller";
@@ -463,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3FA71571BF8529B00CB4E79 /* StockTableViewCell.xib in Resources */,
+				A33D746F1C0C1C940064E34D /* fileOne.strings in Resources */,
 				A38CD1761BE582D000E3B406 /* LaunchScreen.storyboard in Resources */,
 				A38CD1731BE582D000E3B406 /* Assets.xcassets in Resources */,
 				A38CD16E1BE582D000E3B406 /* Main.storyboard in Resources */,
@@ -494,16 +498,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3A4DADD1BE9F93D007F56EA /* DeleteStockTableCell.swift in Sources */,
-				A3FA71661BF9211A00CB4E79 /* Stock+CoreDataProperties.swift in Sources */,
+				A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */,
 				A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */,
+				A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */,
 				A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */,
 				A38CD1711BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld in Sources */,
 				A38CD1E01BE6E2D900E3B406 /* DetailStockViewController.swift in Sources */,
 				A3A4DAD61BE9F2D6007F56EA /* AddStockTableCell.swift in Sources */,
 				A3A4DAE81BEB245C007F56EA /* UpdateSearchResultController.swift in Sources */,
 				A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */,
-				A3A4DA9E1BE85E06007F56EA /* PageViewController.swift in Sources */,
-				A3FA71671BF9211A00CB4E79 /* Stock.swift in Sources */,
+				A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */,
 				A3A4DAE41BEA088D007F56EA /* SearchTabTableViewController.swift in Sources */,
 				A38CD1BF1BE5B25F00E3B406 /* WatchListViewController.swift in Sources */,
 				A38CD1BD1BE5B20200E3B406 /* RootViewController.swift in Sources */,

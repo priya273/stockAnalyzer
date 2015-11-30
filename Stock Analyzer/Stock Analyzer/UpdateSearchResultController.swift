@@ -13,6 +13,7 @@ import CoreData
 protocol updateSearchResultProtocol
 {
     func addItem(name: String, symbol: String)
+    func takeControl(searchState: String)
 }
 
 class UpdateSearchResultController: UITableViewController, AddStockTableCellDelegate, UISearchResultsUpdating
@@ -153,7 +154,15 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
                 }
                 catch
                 {
-                    abort()
+                   // abort()
+                    print("Something went wrong")
+                    //self.filteredTickerSymbols.removeAll()
+                    self.delegate?.takeControl(search!)
+                    
+                    
+                    //self.clearSearchBar()
+                    
+                    
                 }
             }
     
@@ -161,6 +170,8 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
   
                tableView.reloadData();
     }
+
+    
 
     func updateFilteredList(allResults: [String], search : String)
     {

@@ -11,61 +11,42 @@ import UIKit
 class DetailStockViewController: UIViewController
 {
 
+    @IBOutlet weak var containerVC: UIView!
     var stock : Stock!
-    @IBOutlet weak var pageControlIcon: UIPageControl!
     
-    var index = 0
-        {
-            didSet
-            {
-                if(index != oldValue)
-                {
-                    pageControlIcon.currentPage = index;
-                }
-        }
-    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        configurePageControlIcon();
-        PageControlValueChanged();
+    
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
+    
+  
+       override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
     
-
-    /*
+    func getStock () -> Stock
+    {
+        return self.stock;
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if(segue.identifier == "ShowStockDetail")
+        {
+            let vc = segue.destinationViewController as! StockIInfoViewController
+            vc.stock = stock;
+        }
     }
-    */
     
-    func configurePageControlIcon()
-    {
-        pageControlIcon.numberOfPages = 2;
-    pageControlIcon.currentPage = index;
-        pageControlIcon.pageIndicatorTintColor = UIColor.grayColor();
-        pageControlIcon.currentPageIndicatorTintColor = UIColor.blackColor();
-        pageControlIcon.addTarget(self, action: "PageControlValueChanged", forControlEvents: UIControlEvents.ValueChanged);
-    }
-
-    func PageControlValueChanged()
-    {
-   
-        //Do something
-        NSLog("The page control changed its current page to \(pageControlIcon.currentPage).");
-       //http://samwize.com/2015/10/13/how-to-create-uipageviewcontroller-in-storyboard-in-container-view/
-        
-        
-    }
     
   }

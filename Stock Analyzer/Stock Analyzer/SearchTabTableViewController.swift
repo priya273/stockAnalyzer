@@ -104,7 +104,21 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
 
     }
     
-    func addItem(name: String, symbol: String)
+    func takeControl(searchState: String)
+    {
+        searchViewController.active = false;
+        clearSearchBar(searchState)
+    }
+    func clearSearchBar(search : String)
+    {
+        
+        let alertController = UIAlertController(title: search, message: "Can not find " + search, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+
+      func addItem(name: String, symbol: String)
     {
         self.searchViewController.active = false;
         print("you selected \(name) and \(symbol)")

@@ -191,6 +191,10 @@
         <scene sceneID="zJP-ms-LYf">
             <objects>
                 <viewController id="ojK-5B-ySk" customClass="StockIInfoViewController" customModule="Stock_Analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ynk-Te-Udt"/>
+                        <viewControllerLayoutGuide type="bottom" id="kfM-gv-6dW"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nFK-OP-FoD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="183"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A3077FBB1C0D06F0001E1FEC /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3077FB61C0D0666001E1FEC /* Charts.framework */; };
 		A3077FBC1C0D06F0001E1FEC /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3077FB61C0D0666001E1FEC /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3077FC21C0D25D0001E1FEC /* PriceChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */; };
+		A3077FC41C0D25E4001E1FEC /* SentimentalChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */; };
 		A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */; };
 		A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */; };
 		A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746B1C0BDD5A0064E34D /* Stock.swift */; };
@@ -141,6 +143,8 @@
 
 /* Begin PBXFileReference section */
 		A3077FAB1C0D0666001E1FEC /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../ios-charts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChartViewController.swift; sourceTree = "<group>"; };
+		A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentalChartViewController.swift; sourceTree = "<group>"; };
 		A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockIInfoViewController.swift; sourceTree = "<group>"; };
 		A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A33D746B1C0BDD5A0064E34D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
@@ -212,6 +216,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A3077FC01C0D2583001E1FEC /* Charts view Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */,
+				A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */,
+			);
+			name = "Charts view Controller";
+			sourceTree = "<group>";
+		};
 		A38CD15C1BE582D000E3B406 = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +258,7 @@
 				A3A4DAD81BE9F55D007F56EA /* Search view Controller */,
 				A3A4DAD31BE9F086007F56EA /* Table view Cell for New Stock */,
 				A3A4DAA31BE89AC9007F56EA /* Data Model */,
-				A3A4DA9C1BE85DD7007F56EA /* Detail (page) View Controller */,
+				A3A4DA9C1BE85DD7007F56EA /* Detail (pages) View Controller */,
 				A3BC40401BE73C95009A73B2 /* View Controllers */,
 				A3BC40411BE73CFB009A73B2 /* Application */,
 				A38CD1721BE582D000E3B406 /* Assets.xcassets */,
@@ -274,13 +287,14 @@
 			path = "Stock AnalyzerUITests";
 			sourceTree = "<group>";
 		};
-		A3A4DA9C1BE85DD7007F56EA /* Detail (page) View Controller */ = {
+		A3A4DA9C1BE85DD7007F56EA /* Detail (pages) View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				A38CD1DF1BE6E2D900E3B406 /* DetailStockViewController.swift */,
 				A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */,
+				A3077FC01C0D2583001E1FEC /* Charts view Controller */,
 			);
-			name = "Detail (page) View Controller";
+			name = "Detail (pages) View Controller";
 			sourceTree = "<group>";
 		};
 		A3A4DAA31BE89AC9007F56EA /* Data Model */ = {
@@ -571,9 +585,11 @@
 				A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */,
 				A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */,
 				A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */,
+				A3077FC41C0D25E4001E1FEC /* SentimentalChartViewController.swift in Sources */,
 				A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */,
 				A38CD1711BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld in Sources */,
 				A38CD1E01BE6E2D900E3B406 /* DetailStockViewController.swift in Sources */,
+				A3077FC21C0D25D0001E1FEC /* PriceChartViewController.swift in Sources */,
 				A3A4DAD61BE9F2D6007F56EA /* AddStockTableCell.swift in Sources */,
 				A3A4DAE81BEB245C007F56EA /* UpdateSearchResultController.swift in Sources */,
 				A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */,

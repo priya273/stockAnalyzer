@@ -18,7 +18,7 @@ class DetailStockViewController: UIViewController
     {
         super.viewDidLoad()
         
-    
+        self.tabBarController?.tabBar.hidden = true;
         // Do any additional setup after loading the view.
     }
     
@@ -44,6 +44,11 @@ class DetailStockViewController: UIViewController
         if(segue.identifier == "ShowStockDetail")
         {
             let vc = segue.destinationViewController as! StockIInfoViewController
+            vc.stock = stock;
+        }
+        else if(segue.identifier == "ShowChart")
+        {
+            let vc = segue.destinationViewController as! ChartTabViewController
             vc.stock = stock;
         }
     }

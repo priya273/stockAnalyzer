@@ -31,6 +31,11 @@ class WatchListViewController: BaseTableViewController
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool)
+    {
+        
+        self.tabBarController?.tabBar.hidden = false;
+    }
     
     
     //Mark: - Data Source  Table view
@@ -113,9 +118,9 @@ class WatchListViewController: BaseTableViewController
        {
           let stock = sender as! Stock;
           let destination = segue.destinationViewController as! DetailStockViewController
-        destination.stock = stock;
+           destination.stock = stock;
         
-        
+       // self.tabBarController?.tabBar.hidden = true;
       }
         
     }

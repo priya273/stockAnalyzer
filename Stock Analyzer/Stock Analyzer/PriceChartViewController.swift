@@ -19,7 +19,7 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
     var stock : Stock!
     
     @IBOutlet weak var priceInformation: UILabel!
-    @IBOutlet weak var lineChartView: LineChartView!
+   // @IBOutlet weak var lineChartView: LineChartView!
    // var popUPView : PopUpView!
     var Positions : [Double] = []
     var Dates : [String] = []
@@ -28,6 +28,9 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
     var dateComponentList : [NSDateComponents] = []
     var dataAvailable : Bool = false
 
+    var lineChartView : LineChartView!
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -115,6 +118,10 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
     //func setChart(dataPoints: [String], value: [Double])
     func setChart(dataPoints: [Double], value: [Double])
     {
+        
+        
+        self.lineChartView = LineChartView()
+        
           lineChartView.noDataText = "You need to provide data for the chart."
         var dataEntriesYaxisForEachX :[ChartDataEntry] = []
         
@@ -145,12 +152,12 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         var intervalCount = Int(maxVal - minVal)
         
         
-        lineChartView.leftAxis.customAxisMin = max(minVal, lineChartView.data!.yMin - 1)
+        lineChartView.leftAxis.customAxisMin = min(minVal - 10, lineChartView.data!.yMin - 1)
         
         
-        lineChartView.leftAxis.customAxisMax = max(maxVal, lineChartView.data!.yMax + 1)
+        lineChartView.leftAxis.customAxisMax = max(maxVal + 10, lineChartView.data!.yMax + 1)
         
-        if(intervalCount / 5 > 2)
+        if(intervalCount / 10 > 2)
         {
             intervalCount = intervalCount / 5
         }
@@ -167,7 +174,9 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         lineChartView.leftAxis.gridColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
        // lineChartView.drawGridBackgroundEnabled = false
  
+       lineChartView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         
+        self.view.addSubview(self.lineChartView)
  
         
     }

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 import UIKit
-
+import Alamofire
 
 class SearchTabTableViewController: BaseTableViewController, updateSearchResultProtocol
 {
@@ -138,6 +138,9 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
 
         else
         {
+            
+            
+            
             //Add new symbol
             AddNewStockToWatchList(name, symbol: symbol)
         }
@@ -159,6 +162,10 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         
         newManagedObject.name = name;
         newManagedObject.symbol = symbol;
+        
+        setAllVariables(newManagedObject)
+        
+        
         // Save the context.
         do {
             try context.save()
@@ -171,6 +178,59 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
             abort()
         }
         
+    }
+    
+    func setAllVariables(object : Stock)
+    {
+        
+        Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/Quote/json?", parameters: ["symbol" : object.symbol!]).responseJSON {
+            JSON in
+            do
+            {
+                let values = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
+                
+                object.open =  values.valueForKey("Open") as? NSNumber
+                object.high = values.valueForKey("High") as? NSNumber
+                object.low =  values.valueForKey("Low") as? NSNumber
+                object.marketCap = values.valueForKey("MarketCap") as? NSNumber
+                
+                object.lastPrice = values.valueForKey("LastPrice") as? NSNumber
+                
+                object.volumn = values.valueForKey("Volume") as? NSNumber
+                object.change = values.valueForKey("Change") as? NSNumber
+                object.changePercent = values.valueForKey("ChangePercent") as? NSNumber
+                
+                
+                
+                // Save the context.
+                do {
+                    try self.fetchedResultsController.managedObjectContext.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    //print("Unresolved error \(error), \(error.userInfo)")
+                    NSLog("There was a problem to insert");
+                    
+                    abort()
+                }
+                
+
+            }
+            catch
+            {
+               
+                let controller = UIAlertController(title: "You Selected \(object.symbol!)", message: "something went wrong try again", preferredStyle: UIAlertControllerStyle.Alert)
+                let action = UIAlertAction(title: "okay", style: UIAlertActionStyle.Cancel, handler: nil)
+                controller.addAction(action)
+                
+                self.presentViewController(controller, animated: true, completion: nil)
+
+              
+            }
+            
+            
+        }
+
     }
     func CheckIfTheSymbolAlreadyExist(symbol : String) -> Bool
     {

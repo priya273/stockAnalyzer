@@ -36,10 +36,11 @@ class StockIInfoViewController: UIViewController
         stockName.text = stock.name!
         Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/Quote/json?", parameters: ["symbol" : self.stock.symbol!]).responseJSON {
             JSON in
-            //print(JSON)
+           // print(JSON)
             do
             {
                 let values = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
+               
                 self.open.text = String(format:"%.2f", Double(values.valueForKey("Open") as! NSNumber))
                 self.high.text = String(format:"%.2f", Double(values.valueForKey("High") as! NSNumber))
                 self.low.text = String(format:"%.2f", Double(values.valueForKey("Low") as! NSNumber))

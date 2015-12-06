@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class WatchListViewController: BaseTableViewController
 {
@@ -38,6 +39,7 @@ class WatchListViewController: BaseTableViewController
     }
     
     
+    
     //Mark: - Data Source  Table view
     //The data source acts like a controller for table view
     //It provides information about the data
@@ -60,8 +62,12 @@ class WatchListViewController: BaseTableViewController
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Stock
         let cellCur = cell as! StockTableViewCell;
         
-        cellCur.name = object.name!
+   
+        cellCur.name = String(format:"%.2f",Double(object.lastPrice!))
+        cellCur.change = Double(object.change!)
         cellCur.symbol = object.symbol!
+        
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)

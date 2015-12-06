@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Watch List-->
@@ -26,7 +27,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KS5-Ie-Fwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1187" y="58"/>
+            <point key="canvasLocation" x="1460" y="-99"/>
         </scene>
         <!--Stock Detail-->
         <scene sceneID="7mf-1R-Pje">
@@ -47,41 +48,32 @@
                                     <segue destination="qsZ-7f-B7s" kind="embed" identifier="ShowChart" id="9QM-UV-w4n"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dY-mB-6Af">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1D-hU-X8k">
                                 <rect key="frame" x="0.0" y="445" width="600" height="155"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="ojK-5B-ySk" kind="embed" identifier="ShowStockDetail" id="epj-eK-EQ7"/>
+                                    <segue destination="ojK-5B-ySk" kind="embed" identifier="ShowStockDetail" id="yAT-uX-ver"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="9dY-mB-6Af" secondAttribute="bottom" id="8U8-r6-Joq"/>
+                            <constraint firstAttribute="bottom" secondItem="p1D-hU-X8k" secondAttribute="bottom" id="2Pf-wh-akL"/>
                             <constraint firstAttribute="bottom" secondItem="x1O-2Z-kL0" secondAttribute="bottom" constant="155" id="Dyf-dO-093"/>
-                            <constraint firstItem="5H4-YJ-T7h" firstAttribute="top" secondItem="9dY-mB-6Af" secondAttribute="bottom" constant="8" symbolic="YES" id="Fdh-CH-KiS"/>
-                            <constraint firstItem="x1O-2Z-kL0" firstAttribute="leading" secondItem="9dY-mB-6Af" secondAttribute="leading" id="G6y-4i-Hwv"/>
+                            <constraint firstItem="p1D-hU-X8k" firstAttribute="top" secondItem="x1O-2Z-kL0" secondAttribute="bottom" id="JnX-cK-foA"/>
                             <constraint firstItem="x1O-2Z-kL0" firstAttribute="leading" secondItem="I88-Og-3fl" secondAttribute="leading" id="PEE-7J-oMu"/>
                             <constraint firstItem="x1O-2Z-kL0" firstAttribute="top" secondItem="tlN-n2-Vy0" secondAttribute="bottom" id="Q00-Yk-CbN"/>
+                            <constraint firstItem="p1D-hU-X8k" firstAttribute="leading" secondItem="x1O-2Z-kL0" secondAttribute="leading" id="cFU-Z9-AdW"/>
+                            <constraint firstItem="p1D-hU-X8k" firstAttribute="trailing" secondItem="x1O-2Z-kL0" secondAttribute="trailing" id="ea8-2M-OBR"/>
                             <constraint firstAttribute="trailing" secondItem="x1O-2Z-kL0" secondAttribute="trailing" id="kSl-qy-DGU"/>
-                            <constraint firstItem="9dY-mB-6Af" firstAttribute="top" secondItem="x1O-2Z-kL0" secondAttribute="bottom" id="kne-aB-pYm"/>
-                            <constraint firstItem="x1O-2Z-kL0" firstAttribute="trailing" secondItem="9dY-mB-6Af" secondAttribute="trailing" id="mWg-Jl-BWj"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Fdh-CH-KiS"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Stock Detail" id="D1L-bB-5gF"/>
-                    <connections>
-                        <outlet property="containerVC" destination="9dY-mB-6Af" id="Fcs-Gg-PUE"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wl-di-JkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="260"/>
+            <point key="canvasLocation" x="2931" y="395"/>
         </scene>
         <!--Sentiments-->
         <scene sceneID="6D2-t2-ZfA">
@@ -116,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWJ-oO-JOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653" y="259.5"/>
+            <point key="canvasLocation" x="4133" y="285.5"/>
         </scene>
         <!--Average Sentiments-->
         <scene sceneID="Owe-yw-xxC">
@@ -152,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWP-VQ-1Gr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653" y="-540.5"/>
+            <point key="canvasLocation" x="4057" y="-854.5"/>
         </scene>
         <!--Price Chart-->
         <scene sceneID="gfJ-rh-goO">
@@ -166,28 +158,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="381"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Z-Bg-zDA">
+                                <rect key="frame" x="20" y="0.0" width="560" height="32"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfu-ET-wvM" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="332"/>
+                                <rect key="frame" x="0.0" y="32" width="600" height="300"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <animations/>
                         <constraints>
-                            <constraint firstItem="fMT-fK-e3U" firstAttribute="top" secondItem="Sfu-ET-wvM" secondAttribute="bottom" id="7pj-n2-C6v"/>
-                            <constraint firstItem="Sfu-ET-wvM" firstAttribute="top" secondItem="3Hb-VL-N2g" secondAttribute="bottom" id="CIM-Xa-jSb"/>
-                            <constraint firstItem="Sfu-ET-wvM" firstAttribute="leading" secondItem="lKe-Eh-YzR" secondAttribute="leading" id="c2K-ES-xVn"/>
-                            <constraint firstAttribute="trailing" secondItem="Sfu-ET-wvM" secondAttribute="trailing" id="qJD-Ph-tLi"/>
+                            <constraint firstItem="Sfu-ET-wvM" firstAttribute="top" secondItem="3Hb-VL-N2g" secondAttribute="bottom" constant="32" id="BoZ-zo-gq8"/>
+                            <constraint firstItem="Sfu-ET-wvM" firstAttribute="top" secondItem="w6Z-Bg-zDA" secondAttribute="bottom" id="CHg-a4-YBZ"/>
+                            <constraint firstItem="Sfu-ET-wvM" firstAttribute="leading" secondItem="lKe-Eh-YzR" secondAttribute="leading" id="MGi-vr-CPI"/>
+                            <constraint firstAttribute="trailing" secondItem="Sfu-ET-wvM" secondAttribute="trailing" id="Rwh-m7-cqt"/>
+                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="leading" secondItem="lKe-Eh-YzR" secondAttribute="leadingMargin" id="dRl-lx-vP5"/>
+                            <constraint firstItem="Sfu-ET-wvM" firstAttribute="bottom" secondItem="fMT-fK-e3U" secondAttribute="top" id="dYS-fc-Pio"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w6Z-Bg-zDA" secondAttribute="trailing" id="hrQ-tE-UeN"/>
+                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="top" secondItem="3Hb-VL-N2g" secondAttribute="bottom" id="nt7-sp-uhf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Price Chart" image="Stock" selectedImage="Stock" id="zzP-ui-7ti"/>
                     <connections>
                         <outlet property="lineChartView" destination="Sfu-ET-wvM" id="4W0-cN-PxL"/>
+                        <outlet property="priceInformation" destination="w6Z-Bg-zDA" id="0kK-qG-Kb2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zZ-zn-V9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653" y="-124.5"/>
+            <point key="canvasLocation" x="4057" y="-419.5"/>
         </scene>
         <!--Chart Tab View Controller-->
         <scene sceneID="CdU-eS-bKT">
@@ -207,7 +211,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Biq-1a-4G9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681" y="161.5"/>
+            <point key="canvasLocation" x="3099" y="-329.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="g27-nV-JIr">
@@ -242,7 +246,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="u76-XM-uRV" kind="relationship" relationship="rootViewController" id="IQG-zt-HoV"/>
+                        <segue destination="u76-XM-uRV" kind="relationship" relationship="rootViewController" id="7xw-jp-cEw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgb-vs-Jrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -257,7 +261,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtV-8t-RKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221.5" y="916"/>
+            <point key="canvasLocation" x="101.5" y="337"/>
         </scene>
         <!--StockI Info View Controller-->
         <scene sceneID="zJP-ms-LYf">
@@ -444,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Uu-YA-z2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750" y="543"/>
+            <point key="canvasLocation" x="1700" y="1325.5"/>
         </scene>
     </scenes>
     <resources>

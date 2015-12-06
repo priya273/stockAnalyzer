@@ -25,6 +25,8 @@ extension Stock {
     @NSManaged var open: NSNumber?
     @NSManaged var symbol: String?
     @NSManaged var timestamp: String?
-    @NSManaged var stockDetail: NSManagedObject?
+    
+    @NSManaged var volumn: NSNumber?
+
 
 }

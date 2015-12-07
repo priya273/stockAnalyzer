@@ -52,16 +52,19 @@ class StockTableViewCell: UITableViewCell
                 if(change != oldValue)
                 {
                   
-                    priceChange.text = String(format:"%.2f",change)
+                    let stringVal = String(format:"%.2f",change)
+            
+                    
                     if(change < 0)
                     {
-                        priceChange.backgroundColor = UIColor.redColor()
-                       
+                        priceChange.textColor = UIColor.redColor()
+                         priceChange.text = "↓ \(stringVal)%"
                     }
                     else
                     {
-                        priceChange.backgroundColor = UIColor.greenColor()
-                         priceChange.textColor = UIColor.blackColor()
+                       
+                        priceChange.textColor = UIColor.greenColor()
+                       priceChange.text = "↑ +\(stringVal)%"
                     }
                 }
             }

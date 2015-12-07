@@ -64,7 +64,7 @@ class WatchListViewController: BaseTableViewController
         
    
         cellCur.name = String(format:"%.2f",Double(object.lastPrice!))
-        cellCur.change = Double(object.change!)
+        cellCur.change = Double(object.changePercent!)
         cellCur.symbol = object.symbol!
         
         
@@ -95,4 +95,7 @@ class WatchListViewController: BaseTableViewController
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
 }

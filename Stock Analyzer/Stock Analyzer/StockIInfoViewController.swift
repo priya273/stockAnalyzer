@@ -11,7 +11,6 @@ import Alamofire
 
 class StockIInfoViewController: UIViewController
 {
-
     
     let characterForBigValues = ["K","M","B", "T"]
     
@@ -27,8 +26,7 @@ class StockIInfoViewController: UIViewController
     @IBOutlet weak var lastPrice: UILabel!
     var stock : Stock!
 
-    
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -41,16 +39,27 @@ class StockIInfoViewController: UIViewController
             {
                 let values = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
                
-                self.open.text = String(format:"%.2f", Double(values.valueForKey("Open") as! NSNumber))
-                self.high.text = String(format:"%.2f", Double(values.valueForKey("High") as! NSNumber))
-                self.low.text = String(format:"%.2f", Double(values.valueForKey("Low") as! NSNumber))
+                self.stock.open! =  values.valueForKey("Open") as! NSNumber
+                self.open.text = String(format:"%.2f", Double(self.stock.open!))
                 
-    
-                self.marketCap.text = self.computeDouble(Double(values.valueForKey("MarketCap") as! NSNumber))
+                self.stock.high! = values.valueForKey("High") as! NSNumber
+                self.high.text = String(format:"%.2f", Double(self.stock.high!))
                 
+                self.stock.low! =  values.valueForKey("Low") as! NSNumber
+                self.low.text = String(format:"%.2f", Double(self.stock.low!))
+                
+                self.stock.marketCap! = values.valueForKey("MarketCap") as! NSNumber
+                self.marketCap.text = self.computeDouble(Double( self.stock.marketCap!))
+                
+                self.stock.lastPrice! = values.valueForKey("LastPrice") as! NSNumber
                 self.lastPrice.text = String(format:"%.2f", Double(values.valueForKey("LastPrice") as! NSNumber))
-               // self.vol.text = (values.valueForKey("Volume") as! NSNumber).stringValue
+
+                self.stock.volumn! = values.valueForKey("Volume") as! NSNumber
                 self.vol.text = self.computeInt(Double(values.valueForKey("Volume") as! NSNumber))
+                
+                self.stock.change! = values.valueForKey("Change") as! NSNumber
+                self.stock.changePercent! = values.valueForKey("ChangePercent") as! NSNumber
+            
             }
             catch
             {
@@ -58,10 +67,7 @@ class StockIInfoViewController: UIViewController
                 //abort()
             }
         }
-  
-                   // Do any additional setup after loading the view.
-    }
-    
+      }
     
     func computeInt(value: Double) -> String
     {
@@ -116,11 +122,7 @@ class StockIInfoViewController: UIViewController
         
         return val1 + val2;
     }
-    override func viewDidAppear(animated: Bool)
-    {
-        
-    }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -132,20 +134,10 @@ class StockIInfoViewController: UIViewController
         let controller = UIAlertController(title: titleforController , message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Cancel, handler: nil)
         controller.addAction(action)
-        
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }

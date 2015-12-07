@@ -173,10 +173,7 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         self.chartView.addSubview(self.lineChartView)
         self.priceInformation.text = "Interactive Chart"
  
-        
     }
-    
-    
 
     
      // MARK: - ChartViewDelegate

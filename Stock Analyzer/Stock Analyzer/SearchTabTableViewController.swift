@@ -188,7 +188,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
                 
                 
                 // Save the context.
-                do {
+               /* do {
                     try self.fetchedResultsController.managedObjectContext.save()
                    }
                    catch
@@ -203,7 +203,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                     
                    // abort()
-                }
+                }*/
             }
             catch
             {
@@ -290,6 +290,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
+    
     
     
 }

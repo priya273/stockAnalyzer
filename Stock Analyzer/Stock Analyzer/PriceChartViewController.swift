@@ -16,6 +16,7 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
 {
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
 
+    @IBOutlet weak var chartView: UIView!
     var stock : Stock!
     
     @IBOutlet weak var priceInformation: UILabel!
@@ -121,6 +122,7 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         
         
         self.lineChartView = LineChartView()
+        self.lineChartView.delegate = self
         
           lineChartView.noDataText = "You need to provide data for the chart."
         var dataEntriesYaxisForEachX :[ChartDataEntry] = []
@@ -152,16 +154,16 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         var intervalCount = Int(maxVal - minVal)
         
         
-        lineChartView.leftAxis.customAxisMin = min(minVal - 10, lineChartView.data!.yMin - 1)
+        lineChartView.leftAxis.customAxisMin = min(minVal - 5, lineChartView.data!.yMin - 1)
         
         
-        lineChartView.leftAxis.customAxisMax = max(maxVal + 10, lineChartView.data!.yMax + 1)
+        lineChartView.leftAxis.customAxisMax = max(maxVal + 5, lineChartView.data!.yMax + 1)
         
-        if(intervalCount / 10 > 2)
+        if(intervalCount / 10 != 0)
         {
-            intervalCount = intervalCount / 5
+            intervalCount = intervalCount / 10 + 1
         }
-//
+        //
 //                print(intervalCount)
         lineChartView.leftAxis.labelCount = intervalCount
         lineChartView.leftAxis.startAtZeroEnabled = false
@@ -174,9 +176,9 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         lineChartView.leftAxis.gridColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
        // lineChartView.drawGridBackgroundEnabled = false
  
-       lineChartView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        
-        self.view.addSubview(self.lineChartView)
+       lineChartView.frame = CGRectMake(0, 0, self.chartView.frame.width, self.chartView.frame.height)
+     
+        self.chartView.addSubview(self.lineChartView)
  
         
     }

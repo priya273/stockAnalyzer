@@ -158,23 +158,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="381"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Z-Bg-zDA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Z-Bg-zDA">
                                 <rect key="frame" x="20" y="0.0" width="560" height="32"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="33A-HR-XMf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1md-w8-vt2">
+                                <rect key="frame" x="20" y="32" width="560" height="280"/>
+                                <animations/>
+                            </view>
                         </subviews>
                         <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="leading" secondItem="lKe-Eh-YzR" secondAttribute="leadingMargin" id="dRl-lx-vP5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w6Z-Bg-zDA" secondAttribute="trailing" id="hrQ-tE-UeN"/>
-                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="top" secondItem="3Hb-VL-N2g" secondAttribute="bottom" id="nt7-sp-uhf"/>
+                            <constraint firstItem="1md-w8-vt2" firstAttribute="leading" secondItem="w6Z-Bg-zDA" secondAttribute="leading" id="Emp-HP-lLW"/>
+                            <constraint firstItem="1md-w8-vt2" firstAttribute="top" secondItem="w6Z-Bg-zDA" secondAttribute="bottom" id="J1R-fm-1jl"/>
+                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="top" secondItem="3Hb-VL-N2g" secondAttribute="bottom" id="OBi-Dk-DaU"/>
+                            <constraint firstItem="1md-w8-vt2" firstAttribute="trailing" secondItem="w6Z-Bg-zDA" secondAttribute="trailing" id="RQo-Qn-fYK"/>
+                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="trailing" secondItem="lKe-Eh-YzR" secondAttribute="trailingMargin" id="T6c-XN-yYl"/>
+                            <constraint firstItem="w6Z-Bg-zDA" firstAttribute="leading" secondItem="lKe-Eh-YzR" secondAttribute="leadingMargin" id="ksS-ht-fL1"/>
+                            <constraint firstItem="fMT-fK-e3U" firstAttribute="top" secondItem="1md-w8-vt2" secondAttribute="bottom" constant="20" id="mt7-Mz-6F0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Price Chart" image="Stock" selectedImage="Stock" id="zzP-ui-7ti"/>
                     <connections>
+                        <outlet property="chartView" destination="1md-w8-vt2" id="gO4-8x-94u"/>
                         <outlet property="priceInformation" destination="w6Z-Bg-zDA" id="0kK-qG-Kb2"/>
                     </connections>
                 </viewController>

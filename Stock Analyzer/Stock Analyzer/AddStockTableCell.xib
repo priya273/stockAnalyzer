@@ -14,37 +14,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnK-ju-Jxt">
-                        <rect key="frame" x="267" y="13" width="45" height="47"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.4988515878" green="1" blue="0.263457473" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Add"/>
-                        <connections>
-                            <action selector="addNewStockSymbol:" destination="pl1-2f-4ww" eventType="touchUpInside" id="2AU-Gq-Ko0"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoP-kO-Qow">
-                        <rect key="frame" x="8" y="13" width="259" height="47"/>
+                        <rect key="frame" x="8" y="13" width="251" height="47"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="251" id="f4J-HK-SO0"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnK-ju-Jxt">
+                        <rect key="frame" x="260" y="13" width="52" height="47"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="Follow">
+                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="addNewStockSymbol:" destination="pl1-2f-4ww" eventType="touchUpInside" id="2AU-Gq-Ko0"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="WoP-kO-Qow" secondAttribute="bottom" constant="5" id="0Go-gd-DkZ"/>
-                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="bottom" secondItem="WoP-kO-Qow" secondAttribute="bottom" id="1ds-e6-9pI"/>
+                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="bottom" secondItem="WoP-kO-Qow" secondAttribute="bottom" id="0ZO-IZ-RC7"/>
                     <constraint firstItem="cnK-ju-Jxt" firstAttribute="leading" secondItem="WoP-kO-Qow" secondAttribute="trailing" id="383-XY-7Xp"/>
-                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="trailing" secondItem="YUd-H1-Vrn" secondAttribute="trailingMargin" id="5oq-kO-6Wn"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="WoP-kO-Qow" secondAttribute="trailing" constant="45" id="Bru-sb-Uay"/>
+                    <constraint firstItem="WoP-kO-Qow" firstAttribute="leading" secondItem="YUd-H1-Vrn" secondAttribute="leadingMargin" id="9fM-oS-Juj"/>
                     <constraint firstItem="cnK-ju-Jxt" firstAttribute="centerY" secondItem="YUd-H1-Vrn" secondAttribute="centerY" id="EtG-KD-iJg"/>
+                    <constraint firstItem="WoP-kO-Qow" firstAttribute="top" secondItem="YUd-H1-Vrn" secondAttribute="topMargin" constant="5" id="Gr3-kA-LMs"/>
                     <constraint firstItem="cnK-ju-Jxt" firstAttribute="trailing" secondItem="YUd-H1-Vrn" secondAttribute="trailingMargin" id="LnH-s4-sBk"/>
-                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="top" secondItem="WoP-kO-Qow" secondAttribute="top" id="TDB-95-SJv"/>
-                    <constraint firstItem="WoP-kO-Qow" firstAttribute="top" secondItem="YUd-H1-Vrn" secondAttribute="topMargin" constant="5" id="dJS-U5-9sq"/>
-                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="leading" secondItem="WoP-kO-Qow" secondAttribute="trailing" id="fkk-tn-xGu"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="WoP-kO-Qow" secondAttribute="leading" id="rDd-pp-yYC"/>
+                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="top" secondItem="WoP-kO-Qow" secondAttribute="top" id="Ovg-Er-Epo"/>
+                    <constraint firstItem="WoP-kO-Qow" firstAttribute="centerY" secondItem="YUd-H1-Vrn" secondAttribute="centerY" id="iVx-8i-je0"/>
+                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="leading" secondItem="WoP-kO-Qow" secondAttribute="trailing" constant="1" id="igD-4M-0Ve"/>
+                    <constraint firstItem="cnK-ju-Jxt" firstAttribute="trailing" secondItem="YUd-H1-Vrn" secondAttribute="trailingMargin" id="pA2-TR-6dc"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

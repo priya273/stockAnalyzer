@@ -94,6 +94,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         
          cellCur.name = stock.valueForKey("name") as! String
          cellCur.symbol = stock.valueForKey("symbol") as! String;
+         cellCur.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
     func takeControl(searchState: String)
@@ -152,7 +153,8 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         // Save the context.
         do {
             try context.save()
-        } catch {
+        } catch
+        {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
            
@@ -186,36 +188,11 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
                 object.changePercent = values.valueForKey("ChangePercent") as? NSNumber
                 
                 
-                
-                // Save the context.
-               /* do {
-                    try self.fetchedResultsController.managedObjectContext.save()
-                   }
-                   catch
-                   {
-                   
-                    NSLog("There was a problem to insert");
-                    
-                    self.alertTheUserSomethingWentWrong("TO DO", message:"Couldnt update other fields to \(object.symbol!)", actionTitle: "okay")
-
-                    
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    
-                   // abort()
-                }*/
             }
             catch
             {
                
-                
                 self.alertTheUserSomethingWentWrong("You Selected \(object.symbol!)", message: "something went wrong, could be the network", actionTitle: "okay")
-               
-//                let controller = UIAlertController(title: "You Selected \(object.symbol!)", message: "something went wrong try again", preferredStyle: UIAlertControllerStyle.Alert)
-//                let action = UIAlertAction(title: "okay", style: UIAlertActionStyle.Cancel, handler: nil)
-//                controller.addAction(action)
-//                
-//                self.presentViewController(controller, animated: true, completion: nil)
             }
             
             

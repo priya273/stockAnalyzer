@@ -90,7 +90,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
             cell.symbolOrName = filteredTickerSymbols[indexPath.row];
             cell.delegate = self;
 
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         return cell
     }

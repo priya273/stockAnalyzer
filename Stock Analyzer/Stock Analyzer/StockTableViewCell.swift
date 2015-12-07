@@ -15,6 +15,7 @@ class StockTableViewCell: UITableViewCell
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var priceChange: UILabel!
+    
     //Declaring variables for this class
     //It will have a ticker Symbol,
     //price

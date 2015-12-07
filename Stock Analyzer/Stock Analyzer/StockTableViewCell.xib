@@ -34,18 +34,15 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vh-SX-66N">
-                                <rect key="frame" x="106" y="16" width="81" height="21"/>
+                                <rect key="frame" x="100" y="16" width="81" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nil" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-SF-uql">
-                                <rect key="frame" x="184" y="16" width="77" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-SF-uql">
+                                <rect key="frame" x="182" y="16" width="79" height="21"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="77" id="fdS-IE-vv4"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -54,13 +51,14 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="QGV-SF-uql" firstAttribute="trailing" secondItem="xE1-ZK-L2t" secondAttribute="trailingMargin" id="M13-n5-6EL"/>
-                            <constraint firstAttribute="trailing" secondItem="4vh-SX-66N" secondAttribute="trailing" constant="82" id="XiI-vf-tZr"/>
-                            <constraint firstItem="QGV-SF-uql" firstAttribute="centerY" secondItem="xE1-ZK-L2t" secondAttribute="centerY" id="ZHZ-lY-e9U"/>
+                            <constraint firstItem="QGV-SF-uql" firstAttribute="centerY" secondItem="xE1-ZK-L2t" secondAttribute="centerY" id="HUQ-nJ-Xb8"/>
+                            <constraint firstItem="4vh-SX-66N" firstAttribute="baseline" secondItem="9FO-jO-vyl" secondAttribute="baseline" id="cks-tg-7E6"/>
+                            <constraint firstItem="4vh-SX-66N" firstAttribute="leading" secondItem="9FO-jO-vyl" secondAttribute="trailing" constant="2" id="f43-dn-WOS"/>
+                            <constraint firstItem="QGV-SF-uql" firstAttribute="baseline" secondItem="4vh-SX-66N" secondAttribute="baseline" id="fRD-hL-mRe"/>
                             <constraint firstItem="9FO-jO-vyl" firstAttribute="leading" secondItem="xE1-ZK-L2t" secondAttribute="leadingMargin" id="hzx-e0-4Z2"/>
-                            <constraint firstItem="4vh-SX-66N" firstAttribute="leading" secondItem="9FO-jO-vyl" secondAttribute="trailing" constant="8" symbolic="YES" id="omF-5O-11i"/>
-                            <constraint firstItem="4vh-SX-66N" firstAttribute="baseline" secondItem="QGV-SF-uql" secondAttribute="baseline" id="yeQ-Jv-VRV"/>
-                            <constraint firstItem="4vh-SX-66N" firstAttribute="baseline" secondItem="9FO-jO-vyl" secondAttribute="baseline" id="yjM-8V-q5h"/>
+                            <constraint firstItem="QGV-SF-uql" firstAttribute="trailing" secondItem="xE1-ZK-L2t" secondAttribute="trailingMargin" id="nPW-pg-KC7"/>
+                            <constraint firstAttribute="trailing" secondItem="4vh-SX-66N" secondAttribute="trailing" constant="88" id="oBK-ww-dnS"/>
+                            <constraint firstItem="QGV-SF-uql" firstAttribute="leading" secondItem="4vh-SX-66N" secondAttribute="trailing" constant="1" id="uJh-4S-0YS"/>
                         </constraints>
                     </view>
                 </subviews>

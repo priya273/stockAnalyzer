@@ -24,6 +24,7 @@ class WatchListViewController: BaseTableViewController
         tableView.registerClass(StockTableViewCell.self, forCellReuseIdentifier: tableViewCellIdentifier);
         let nib = UINib(nibName: "StockTableViewCell", bundle: nil);
         tableView.registerNib(nib, forCellReuseIdentifier: tableViewCellIdentifier);
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -66,6 +67,7 @@ class WatchListViewController: BaseTableViewController
         cellCur.name = String(format:"%.2f",Double(object.lastPrice!))
         cellCur.change = Double(object.changePercent!)
         cellCur.symbol = object.symbol!
+       
         
         
     }
@@ -76,6 +78,7 @@ class WatchListViewController: BaseTableViewController
         
         print("You selected \(object.name ) ")
 
+        
         self.performSegueWithIdentifier("toDetailView", sender: object);
     }
     

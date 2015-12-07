@@ -18,11 +18,10 @@
                         <rect key="frame" x="2" y="2" width="269" height="52"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FO-jO-vyl">
-                                <rect key="frame" x="8" y="16" width="90" height="21"/>
+                                <rect key="frame" x="8" y="16" width="89" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="2UI-zL-c0S"/>
-                                    <constraint firstAttribute="width" constant="90" id="Tvr-mw-e5t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,15 +33,21 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vh-SX-66N">
-                                <rect key="frame" x="100" y="16" width="81" height="21"/>
+                                <rect key="frame" x="100" y="16" width="74" height="21"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="h69-b8-btu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-SF-uql">
-                                <rect key="frame" x="182" y="16" width="79" height="21"/>
+                                <rect key="frame" x="176" y="16" width="85" height="21"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="bLP-6c-DBw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -51,14 +56,13 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="QGV-SF-uql" firstAttribute="centerY" secondItem="xE1-ZK-L2t" secondAttribute="centerY" id="HUQ-nJ-Xb8"/>
-                            <constraint firstItem="4vh-SX-66N" firstAttribute="baseline" secondItem="9FO-jO-vyl" secondAttribute="baseline" id="cks-tg-7E6"/>
-                            <constraint firstItem="4vh-SX-66N" firstAttribute="leading" secondItem="9FO-jO-vyl" secondAttribute="trailing" constant="2" id="f43-dn-WOS"/>
-                            <constraint firstItem="QGV-SF-uql" firstAttribute="baseline" secondItem="4vh-SX-66N" secondAttribute="baseline" id="fRD-hL-mRe"/>
-                            <constraint firstItem="9FO-jO-vyl" firstAttribute="leading" secondItem="xE1-ZK-L2t" secondAttribute="leadingMargin" id="hzx-e0-4Z2"/>
-                            <constraint firstItem="QGV-SF-uql" firstAttribute="trailing" secondItem="xE1-ZK-L2t" secondAttribute="trailingMargin" id="nPW-pg-KC7"/>
-                            <constraint firstAttribute="trailing" secondItem="4vh-SX-66N" secondAttribute="trailing" constant="88" id="oBK-ww-dnS"/>
-                            <constraint firstItem="QGV-SF-uql" firstAttribute="leading" secondItem="4vh-SX-66N" secondAttribute="trailing" constant="1" id="uJh-4S-0YS"/>
+                            <constraint firstItem="4vh-SX-66N" firstAttribute="leading" secondItem="9FO-jO-vyl" secondAttribute="trailing" constant="3" id="0Sf-4W-Ds0"/>
+                            <constraint firstItem="4vh-SX-66N" firstAttribute="centerY" secondItem="xE1-ZK-L2t" secondAttribute="centerY" id="7MF-yN-o8c"/>
+                            <constraint firstItem="4vh-SX-66N" firstAttribute="baseline" secondItem="9FO-jO-vyl" secondAttribute="baseline" id="HlD-ah-Sda"/>
+                            <constraint firstItem="QGV-SF-uql" firstAttribute="leading" secondItem="4vh-SX-66N" secondAttribute="trailing" constant="2" id="MWZ-Bh-jRW"/>
+                            <constraint firstItem="QGV-SF-uql" firstAttribute="trailing" secondItem="xE1-ZK-L2t" secondAttribute="trailingMargin" id="Qiz-aY-IXt"/>
+                            <constraint firstItem="4vh-SX-66N" firstAttribute="baseline" secondItem="QGV-SF-uql" secondAttribute="baseline" id="iX9-SU-afs"/>
+                            <constraint firstItem="9FO-jO-vyl" firstAttribute="leading" secondItem="xE1-ZK-L2t" secondAttribute="leadingMargin" id="p2e-1O-8fN"/>
                         </constraints>
                     </view>
                 </subviews>

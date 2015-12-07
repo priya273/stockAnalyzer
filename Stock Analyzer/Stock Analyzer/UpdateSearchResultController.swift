@@ -27,20 +27,28 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
     let nameButtonPressed :Int = 1;
     var selectedType = -1;
     let searchType = ["Symbol", "Name"];
-
+    var activityIndicatorView : UIActivityIndicatorView?
   
-    var delegate : updateSearchResultProtocol?
+    var delegate : updateSearchResultProtocol!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.blackColor()
         //Register Table view cell
         tableView.registerClass(AddStockTableCell.self, forCellReuseIdentifier: AddStockTableCellIdentifier);
         
         //tell the table view where to find correspoindoing nib file
         let nib = UINib(nibName: "AddStockTableCell", bundle: nil);
         tableView.registerNib(nib, forCellReuseIdentifier: AddStockTableCellIdentifier);
+        
+        activityIndicatorView = UIActivityIndicatorView()
+      //activityIndicatorView!.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
+    
+        activityIndicatorView!.color = UIColor.blueColor()
+        activityIndicatorView!.frame = CGRect(x: self.view.frame.width / 2 , y: 20.0 , width: 55.0, height: 55.0)
+
+        self.view.addSubview(activityIndicatorView!)
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -124,6 +132,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
     {
         let search = searchController.searchBar.text?.uppercaseString;
         
+       
         
         selectedType = searchController.searchBar.selectedScopeButtonIndex;
       
@@ -133,34 +142,32 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
             if(!search!.isEmpty)
         {
 
-        
+            self.activityIndicatorView!.hidden = true
+            self.activityIndicatorView!.startAnimating()
             Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/Lookup/json?", parameters: ["input" : search!]).responseJSON {
             JSON in
             
                 let data = JSON.data! as NSData;
+            
                //print(JSON)
                 do
                 {
-                
-                 self.searchItems = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSArray;
+                  
+                   self.searchItems = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSArray;
                 
                     let allResults = self.searchItems.valueForKey(self.searchType[self.selectedType]) as! [String];
                     
                     if(!search!.isEmpty && allResults.count > 0)
                     {
                         self.updateFilteredList(allResults, search: search!);
+                        
                     }
                 }
                 catch
                 {
                    // abort()
                     print("Something went wrong")
-                    //self.filteredTickerSymbols.removeAll()
                     self.delegate?.takeControl(search!)
-                    
-                    
-                    //self.clearSearchBar()
-                    
                     
                 }
             }
@@ -168,18 +175,23 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
         }
   
                tableView.reloadData();
-    }
+                 }
 
     
 
     func updateFilteredList(allResults: [String], search : String)
     {
-        
+         activityIndicatorView!.hidden = false
+        activityIndicatorView!.stopAnimating()
+       
+
         for key in allResults
         {
             if(key.rangeOfString(search.uppercaseString) != nil || key.rangeOfString(search.lowercaseString) != nil)
             {
+                
                 filteredTickerSymbols.append(key);
+                
             }
         }
 

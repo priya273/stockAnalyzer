@@ -54,7 +54,8 @@ class StockIInfoViewController: UIViewController
             }
             catch
             {
-                abort()
+                   self.alertTheUserSomethingWentWrong("TO DO", message:"Couldnt update other fields to \(self.stock.symbol!)", actionTitle: "okay")
+                //abort()
             }
         }
   
@@ -126,6 +127,16 @@ class StockIInfoViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func alertTheUserSomethingWentWrong(titleforController: String, message : String, actionTitle: String)
+    {
+        let controller = UIAlertController(title: titleforController , message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Cancel, handler: nil)
+        controller.addAction(action)
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
+
 
     /*
     // MARK: - Navigation

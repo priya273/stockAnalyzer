@@ -11,7 +11,6 @@
 		A3077FBC1C0D06F0001E1FEC /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3077FB61C0D0666001E1FEC /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3077FC21C0D25D0001E1FEC /* PriceChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */; };
 		A3077FC41C0D25E4001E1FEC /* SentimentalChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */; };
-		A3077FCA1C0ED481001E1FEC /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FC91C0ED481001E1FEC /* PopUpView.swift */; };
 		A3077FCD1C0FB0EF001E1FEC /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */; };
 		A3077FD21C126B1E001E1FEC /* ChartTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FD11C126B1E001E1FEC /* ChartTabViewController.swift */; };
 		A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */; };
@@ -148,12 +147,11 @@
 		A3077FAB1C0D0666001E1FEC /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../ios-charts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceChartViewController.swift; sourceTree = "<group>"; };
 		A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentalChartViewController.swift; sourceTree = "<group>"; };
-		A3077FC91C0ED481001E1FEC /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		A3077FD11C126B1E001E1FEC /* ChartTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTabViewController.swift; sourceTree = "<group>"; };
 		A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockIInfoViewController.swift; sourceTree = "<group>"; };
-		A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A33D746B1C0BDD5A0064E34D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stock+CoreDataProperties.swift"; path = "../Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A33D746B1C0BDD5A0064E34D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stock.swift; path = ../Stock.swift; sourceTree = "<group>"; };
 		A33D746E1C0C1C940064E34D /* fileOne.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = fileOne.strings; sourceTree = "<group>"; };
 		A38CD1651BE582D000E3B406 /* Stock Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stock Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38CD1681BE582D000E3B406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */,
 				A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */,
 				A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */,
-				A3077FC91C0ED481001E1FEC /* PopUpView.swift */,
 			);
 			name = "Charts view Controller";
 			sourceTree = "<group>";
@@ -237,8 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				A3077FAB1C0D0666001E1FEC /* Charts.xcodeproj */,
-				A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */,
-				A33D746B1C0BDD5A0064E34D /* Stock.swift */,
 				A3A4DAB91BE9EBF4007F56EA /* Alamofire.xcodeproj */,
 				A38CD1671BE582D000E3B406 /* Stock Analyzer */,
 				A38CD17F1BE582D000E3B406 /* Stock AnalyzerTests */,
@@ -309,6 +304,8 @@
 		A3A4DAA31BE89AC9007F56EA /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */,
+				A33D746B1C0BDD5A0064E34D /* Stock.swift */,
 				A38CD16F1BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld */,
 			);
 			name = "Data Model";
@@ -591,7 +588,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3A4DADD1BE9F93D007F56EA /* DeleteStockTableCell.swift in Sources */,
-				A3077FCA1C0ED481001E1FEC /* PopUpView.swift in Sources */,
 				A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */,
 				A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */,
 				A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */,

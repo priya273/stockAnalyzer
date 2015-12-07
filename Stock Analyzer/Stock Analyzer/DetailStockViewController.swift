@@ -10,8 +10,6 @@ import UIKit
 
 class DetailStockViewController: UIViewController
 {
-
-    @IBOutlet weak var containerVC: UIView!
     var stock : Stock!
     
     override func viewDidLoad()

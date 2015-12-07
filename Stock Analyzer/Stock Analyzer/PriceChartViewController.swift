@@ -17,11 +17,10 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
 
     @IBOutlet weak var chartView: UIView!
-    var stock : Stock!
     
     @IBOutlet weak var priceInformation: UILabel!
-   // @IBOutlet weak var lineChartView: LineChartView!
-   // var popUPView : PopUpView!
+    var stock : Stock!
+
     var Positions : [Double] = []
     var Dates : [String] = []
     
@@ -36,19 +35,14 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
     {
         super.viewDidLoad()
         
-        
-        //popUPView = PopUpView()
-        
-      
         DoAllNetworkCalls()
-       
-     
+
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
         
-        print(months.count)
-        print(dateComponentList.count)
-        print(Positions.count)
-        //print(value!.count)
-       
     }
     
     func DoAllNetworkCalls()
@@ -82,12 +76,14 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
                     
                     self.setChart(self.Positions, value: self.prices)
                 }
-                
-                
+                else
+                {
+                    self.priceInformation.text = "No data availabel to load"
+                }
             }
             catch
             {
-                abort()
+                 self.alertTheUserSomethingWentWrong("Problem loading graph", message: "something went wrong, could be the network", actionTitle: "okay")
             }
         }
 
@@ -115,16 +111,16 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         
     }
 
-    //func setChart(dataPoints : [NSDateComponents], value: [Double] )
-    //func setChart(dataPoints: [String], value: [Double])
     func setChart(dataPoints: [Double], value: [Double])
     {
-        
-        
+
         self.lineChartView = LineChartView()
         self.lineChartView.delegate = self
         
-          lineChartView.noDataText = "You need to provide data for the chart."
+        self.lineChartView.noDataText = "You need to provide data for the chart."
+        
+        self.lineChartView.backgroundColor =  UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        
         var dataEntriesYaxisForEachX :[ChartDataEntry] = []
         
         for (var i = 0; i < dataPoints.count; i++)
@@ -134,7 +130,7 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
             dataEntriesYaxisForEachX.append(dataEntry)
         }
         
-        let lineChartDateSet = LineChartDataSet(yVals: dataEntriesYaxisForEachX, label: "Price")
+        let lineChartDateSet = LineChartDataSet(yVals: dataEntriesYaxisForEachX, label: "Price for the last one year")
         lineChartDateSet.axisDependency = .Left
         lineChartDateSet.colors = [UIColor.blueColor()]
         lineChartDateSet.drawCirclesEnabled = false
@@ -142,29 +138,25 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         
         
         
-        lineChartView.data = lineChartData
+        self.lineChartView.data = lineChartData
     
         let minVal = value.minElement()!
         let maxVal = value.maxElement()!
-        
-        lineChartView.delegate = self
-        
-        lineChartView.backgroundColor =  UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+       
 
         var intervalCount = Int(maxVal - minVal)
         
         
-        lineChartView.leftAxis.customAxisMin = min(minVal - 5, lineChartView.data!.yMin - 1)
+        lineChartView.leftAxis.customAxisMin = min(minVal - 2, lineChartView.data!.yMin - 1)
         
         
-        lineChartView.leftAxis.customAxisMax = max(maxVal + 5, lineChartView.data!.yMax + 1)
+        lineChartView.leftAxis.customAxisMax = max(maxVal + 2, lineChartView.data!.yMax + 1)
         
-        if(intervalCount / 10 != 0)
+        if(intervalCount / 5 != 0 && intervalCount / 5 > 2)
         {
-            intervalCount = intervalCount / 10 + 1
+            intervalCount = intervalCount / 5
         }
-        //
-//                print(intervalCount)
+       
         lineChartView.leftAxis.labelCount = intervalCount
         lineChartView.leftAxis.startAtZeroEnabled = false
         
@@ -179,44 +171,30 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
        lineChartView.frame = CGRectMake(0, 0, self.chartView.frame.width, self.chartView.frame.height)
      
         self.chartView.addSubview(self.lineChartView)
+        self.priceInformation.text = "Interactive Chart"
  
         
     }
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
 
+    
+     // MARK: - ChartViewDelegate
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight)
     {
         
-        
           self.priceInformation.text = "\(self.months[self.dateComponentList[entry.xIndex].month - 1]) \(self.dateComponentList[entry.xIndex].day), \(self.dateComponentList[entry.xIndex].year)  Price : \(entry.value)"
-        // let markerPosition = chartView.getMarkerPosition(entry: entry, highlight: highlight)
-        //print(markerPosition.x)
-        //  print(markerPosition.y)
-        // print("Price : \(entry.value)")
-        //print(Dates[entry.xIndex])
-        // print(self.dateComponentList[entry.xIndex].month
-        //popUPView!.label!.text = "\(self.months[self.dateComponentList[entry.xIndex].month - 1]) \(self.dateComponentList[entry.xIndex].day), \(self.dateComponentList[entry.xIndex].year)      Price : \(entry.value)"
+    }
+    
+    // MARK: - Alert Controller
+    func alertTheUserSomethingWentWrong(titleforController: String, message : String, actionTitle: String)
+    {
+        let controller = UIAlertController(title: titleforController , message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Cancel, handler: nil)
+        controller.addAction(action)
         
-      
-       
-        //popUPView.center = CGPointMake(110.0, 100.0)
-       // lineChartView.addSubview(popUPView)
+        self.presentViewController(controller, animated: true, completion: nil)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

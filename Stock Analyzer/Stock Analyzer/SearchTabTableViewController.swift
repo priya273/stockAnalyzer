@@ -33,8 +33,6 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         setUpSearchController();
         
         navigationItem.rightBarButtonItem = editButtonItem();
-
-    
     }
  
     
@@ -50,11 +48,6 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
 
     }
     
-    func reloadFetchResult()
-    {
-        
-    }
-
     
     private func setUpSearchController()
     {
@@ -93,15 +86,14 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         return cell
     }
 
+    
     override func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath)
     {
-          let stock = self.fetchedResultsController.objectAtIndexPath(indexPath);
+         let stock = self.fetchedResultsController.objectAtIndexPath(indexPath);
          let cellCur = cell as! DeleteStockTableCell
         
          cellCur.name = stock.valueForKey("name") as! String
-        cellCur.symbol = stock.valueForKey("symbol") as! String;
-        
-
+         cellCur.symbol = stock.valueForKey("symbol") as! String;
     }
     
     func takeControl(searchState: String)
@@ -122,15 +114,12 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
     {
         self.searchViewController.active = false;
         print("you selected \(name) and \(symbol)")
-
         insertNewObject(name, symbol: symbol)
         
     }
     
     func insertNewObject(name: String, symbol: String)
     {
-        
-        
         if(CheckIfTheSymbolAlreadyExist(symbol))
         {
             return;
@@ -138,9 +127,6 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
 
         else
         {
-            
-            
-            
             //Add new symbol
             AddNewStockToWatchList(name, symbol: symbol)
         }
@@ -150,9 +136,6 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
     {
         let context = self.fetchedResultsController.managedObjectContext
         let entity2 = self.fetchedResultsController.fetchRequest.entity!
-        
-        
-        
         
         let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity2.name!, inManagedObjectContext: context) as! Stock
         
@@ -172,10 +155,12 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error), \(error.userInfo)")
+           
+            
+            //First save the symbol to the watch list.
             NSLog("There was a problem to insert");
             
-            abort()
+            self.alertTheUserSomethingWentWrong("Try again later", message:"unable to add \(newManagedObject.symbol!) to your watch List", actionTitle: "okay")
         }
         
     }
@@ -205,27 +190,32 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
                 // Save the context.
                 do {
                     try self.fetchedResultsController.managedObjectContext.save()
-                } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    //print("Unresolved error \(error), \(error.userInfo)")
+                   }
+                   catch
+                   {
+                   
                     NSLog("There was a problem to insert");
                     
-                    abort()
-                }
-                
+                    self.alertTheUserSomethingWentWrong("TO DO", message:"Couldnt update other fields to \(object.symbol!)", actionTitle: "okay")
 
+                    
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    
+                   // abort()
+                }
             }
             catch
             {
                
-                let controller = UIAlertController(title: "You Selected \(object.symbol!)", message: "something went wrong try again", preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "okay", style: UIAlertActionStyle.Cancel, handler: nil)
-                controller.addAction(action)
                 
-                self.presentViewController(controller, animated: true, completion: nil)
-
-              
+                self.alertTheUserSomethingWentWrong("You Selected \(object.symbol!)", message: "something went wrong, could be the network", actionTitle: "okay")
+               
+//                let controller = UIAlertController(title: "You Selected \(object.symbol!)", message: "something went wrong try again", preferredStyle: UIAlertControllerStyle.Alert)
+//                let action = UIAlertAction(title: "okay", style: UIAlertActionStyle.Cancel, handler: nil)
+//                controller.addAction(action)
+//                
+//                self.presentViewController(controller, animated: true, completion: nil)
             }
             
             
@@ -248,12 +238,9 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
             let objectFetch = try self.fetchedResultsController.managedObjectContext.executeFetchRequest(fetchRequest) as! [Stock]
             if(objectFetch.count > 0)
             {
-                print("Already Exist")
-                let controller = UIAlertController(title: "You Selected \(symbol)", message: "Looks like this symbol already exists in your watch List!", preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "yey, I do", style: UIAlertActionStyle.Cancel, handler: nil)
-                controller.addAction(action)
+                //print("Already Exist")
                 
-                presentViewController(controller, animated: true, completion: nil)
+                self.alertTheUserSomethingWentWrong( "You Selected \(symbol)", message: "Looks like this symbol already exists in your watch List!", actionTitle: "yey, I do")
                 
                 return true;
             }
@@ -267,11 +254,12 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         return false;
     }
     
-    
+    // MARK :- Table view
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true;
     }
+    
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
@@ -283,13 +271,25 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
                 try context.save()
             } catch {
                 NSLog("There was a problem in delete");
+                 self.alertTheUserSomethingWentWrong("Try again later", message:"unable to delete to your watch List", actionTitle: "okay")
                 // Replace this implementation with code to handle the error appropriately.
                 // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 //print("Unresolved error \(error), \(error.userInfo)")
-                abort()
+                //abort()
             }
         }
     }
 
-  
+   // Mark :- Alert Controller
+    func alertTheUserSomethingWentWrong(titleforController: String, message : String, actionTitle: String)
+    {
+        let controller = UIAlertController(title: titleforController , message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Cancel, handler: nil)
+        controller.addAction(action)
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    
+    
 }

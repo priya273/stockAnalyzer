@@ -267,7 +267,6 @@
 				A38CD1721BE582D000E3B406 /* Assets.xcassets */,
 				A38CD16C1BE582D000E3B406 /* Main.storyboard */,
 				A38CD1771BE582D000E3B406 /* Info.plist */,
-				A3A4DADE1BEA00BA007F56EA /* Search.storyboard */,
 			);
 			path = "Stock Analyzer";
 			sourceTree = "<group>";
@@ -337,6 +336,7 @@
 		A3A4DAD81BE9F55D007F56EA /* Search view Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A3A4DADE1BEA00BA007F56EA /* Search.storyboard */,
 				A3A4DAE31BEA088D007F56EA /* SearchTabTableViewController.swift */,
 				A33D746E1C0C1C940064E34D /* fileOne.strings */,
 				A3A4DAE71BEB245C007F56EA /* UpdateSearchResultController.swift */,

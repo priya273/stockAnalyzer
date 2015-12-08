@@ -45,6 +45,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         //tell the table view where to find correspoindoing nib file
         let nib = UINib(nibName: "DeleteStockTableCell", bundle: nil);
         tableView.registerNib(nib, forCellReuseIdentifier: DeleteStockTableCellIdentifier);
+        tableView.tableFooterView = UIView()
 
     }
     

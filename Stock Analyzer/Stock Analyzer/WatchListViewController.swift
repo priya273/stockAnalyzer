@@ -24,6 +24,7 @@ class WatchListViewController: BaseTableViewController
         tableView.registerClass(StockTableViewCell.self, forCellReuseIdentifier: tableViewCellIdentifier);
         let nib = UINib(nibName: "StockTableViewCell", bundle: nil);
         tableView.registerNib(nib, forCellReuseIdentifier: tableViewCellIdentifier);
+        tableView.tableFooterView = UIView()
         
     }
 
@@ -70,6 +71,10 @@ class WatchListViewController: BaseTableViewController
        
         
         
+    }
+    
+    override func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
+        return 0
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)

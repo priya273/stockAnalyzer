@@ -37,6 +37,8 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
         self.view.backgroundColor = UIColor.blackColor()
         //Register Table view cell
         tableView.registerClass(AddStockTableCell.self, forCellReuseIdentifier: AddStockTableCellIdentifier);
+        tableView.tableFooterView = UIView()
+        tableView.separatorColor = UIColor.whiteColor()
         
         //tell the table view where to find correspoindoing nib file
         let nib = UINib(nibName: "AddStockTableCell", bundle: nil);
@@ -45,7 +47,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
         activityIndicatorView = UIActivityIndicatorView()
       //activityIndicatorView!.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
     
-        activityIndicatorView!.color = UIColor.blueColor()
+        activityIndicatorView!.color = UIColor.greenColor()
         activityIndicatorView!.frame = CGRect(x: self.view.frame.width / 2 , y: 20.0 , width: 55.0, height: 55.0)
 
         self.view.addSubview(activityIndicatorView!)

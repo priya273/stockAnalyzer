@@ -78,7 +78,7 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
                 }
                 else
                 {
-                    self.priceInformation.text = "No data availabel to load"
+                    self.priceInformation.text = "No data availabe to load"
                 }
             }
             catch

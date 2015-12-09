@@ -12,9 +12,7 @@ import UIKit
 
 class RootViewController: UITabBarController
 {
-    
- var managedObjectContext: NSManagedObjectContext? = nil
- 
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -40,7 +38,7 @@ class RootViewController: UITabBarController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         // 
-        print("This is called");
+
     }
     
   

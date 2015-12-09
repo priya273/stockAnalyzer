@@ -36,6 +36,10 @@
 		A3A4DADF1BEA00BA007F56EA /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A4DADE1BEA00BA007F56EA /* Search.storyboard */; };
 		A3A4DAE41BEA088D007F56EA /* SearchTabTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4DAE31BEA088D007F56EA /* SearchTabTableViewController.swift */; };
 		A3A4DAE81BEB245C007F56EA /* UpdateSearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4DAE71BEB245C007F56EA /* UpdateSearchResultController.swift */; };
+		A3C8FC271C17F38F0058609C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC261C17F38F0058609C /* Bolts.framework */; };
+		A3C8FC291C17F3A60058609C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */; };
+		A3C8FC2B1C17F3AF0058609C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */; };
+		A3C8FC2E1C17FCC50058609C /* FaceBookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */; };
 		A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */; };
 		A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */; };
 		A3FA71571BF8529B00CB4E79 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FA71561BF8529B00CB4E79 /* StockTableViewCell.xib */; };
@@ -177,6 +181,11 @@
 		A3A4DADE1BEA00BA007F56EA /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A3A4DAE31BEA088D007F56EA /* SearchTabTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabTableViewController.swift; sourceTree = "<group>"; };
 		A3A4DAE71BEB245C007F56EA /* UpdateSearchResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateSearchResultController.swift; sourceTree = "<group>"; };
+		A3C8FC191C17EF430058609C /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		A3C8FC261C17F38F0058609C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "FacebookSDKs-iOS-20151111/Bolts.framework"; sourceTree = "<group>"; };
+		A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceBookLoginViewController.swift; sourceTree = "<group>"; };
 		A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		A3FA714A1BF8459900CB4E79 /* Stock Analyzer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stock Analyzer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -188,6 +197,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C8FC271C17F38F0058609C /* Bolts.framework in Frameworks */,
+				A3C8FC291C17F3A60058609C /* FBSDKCoreKit.framework in Frameworks */,
+				A3C8FC2B1C17F3AF0058609C /* FBSDKLoginKit.framework in Frameworks */,
 				A3A4DACB1BE9EC6B007F56EA /* Alamofire.framework in Frameworks */,
 				A3077FBB1C0D06F0001E1FEC /* Charts.framework in Frameworks */,
 			);
@@ -233,6 +245,9 @@
 		A38CD15C1BE582D000E3B406 = {
 			isa = PBXGroup;
 			children = (
+				A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */,
+				A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */,
+				A3C8FC261C17F38F0058609C /* Bolts.framework */,
 				A3077FAB1C0D0666001E1FEC /* Charts.xcodeproj */,
 				A3A4DAB91BE9EBF4007F56EA /* Alamofire.xcodeproj */,
 				A38CD1671BE582D000E3B406 /* Stock Analyzer */,
@@ -256,6 +271,7 @@
 		A38CD1671BE582D000E3B406 /* Stock Analyzer */ = {
 			isa = PBXGroup;
 			children = (
+				A3C8FC2C1C17FC990058609C /* Face Book Login */,
 				A3FA70F61BF80C6500CB4E79 /* Table view Controllers */,
 				A3A4DAD91BE9F7BD007F56EA /* Table view Cell for Delete */,
 				A3A4DAD81BE9F55D007F56EA /* Search view Controller */,
@@ -267,6 +283,7 @@
 				A38CD1721BE582D000E3B406 /* Assets.xcassets */,
 				A38CD16C1BE582D000E3B406 /* Main.storyboard */,
 				A38CD1771BE582D000E3B406 /* Info.plist */,
+				A3C8FC191C17EF430058609C /* Bridge-Header.h */,
 			);
 			path = "Stock Analyzer";
 			sourceTree = "<group>";
@@ -368,6 +385,14 @@
 				A38CD1681BE582D000E3B406 /* AppDelegate.swift */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		A3C8FC2C1C17FC990058609C /* Face Book Login */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */,
+			);
+			name = "Face Book Login";
 			sourceTree = "<group>";
 		};
 		A3FA70F61BF80C6500CB4E79 /* Table view Controllers */ = {
@@ -598,6 +623,7 @@
 				A38CD1E01BE6E2D900E3B406 /* DetailStockViewController.swift in Sources */,
 				A3077FC21C0D25D0001E1FEC /* PriceChartViewController.swift in Sources */,
 				A3077FD21C126B1E001E1FEC /* ChartTabViewController.swift in Sources */,
+				A3C8FC2E1C17FCC50058609C /* FaceBookLoginViewController.swift in Sources */,
 				A3A4DAD61BE9F2D6007F56EA /* AddStockTableCell.swift in Sources */,
 				A3A4DAE81BEB245C007F56EA /* UpdateSearchResultController.swift in Sources */,
 				A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */,
@@ -758,6 +784,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs-iOS-20151111",
+				);
 				INFOPLIST_FILE = "Stock Analyzer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.priya273.Stock-Analyzer";
@@ -773,6 +803,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs-iOS-20151111",
+				);
 				INFOPLIST_FILE = "Stock Analyzer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.priya273.Stock-Analyzer";

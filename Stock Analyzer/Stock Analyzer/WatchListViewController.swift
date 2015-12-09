@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 import Alamofire
+import FBSDKCoreKit
 
 class WatchListViewController: BaseTableViewController
 {
    let tableViewCellIdentifier = "CellTableIdentifier";
     
+  
     private var detailStockViewController:DetailStockViewController!
 
 
@@ -26,6 +28,7 @@ class WatchListViewController: BaseTableViewController
         tableView.registerNib(nib, forCellReuseIdentifier: tableViewCellIdentifier);
         tableView.tableFooterView = UIView()
         
+
     }
 
     override func didReceiveMemoryWarning()
@@ -70,7 +73,14 @@ class WatchListViewController: BaseTableViewController
         cellCur.symbol = object.symbol!
        
         
-        
+    }
+    
+    @IBAction func logout(sender: UIBarButtonItem)
+    {
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        let facebookloginpage = self.storyboard?.instantiateViewControllerWithIdentifier("FaceBookLoginViewController") as! FaceBookLoginViewController
+        let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDel.window?.rootViewController = facebookloginpage
     }
     
     override func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {

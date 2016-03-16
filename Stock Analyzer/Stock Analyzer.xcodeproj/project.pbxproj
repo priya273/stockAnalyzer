@@ -13,6 +13,12 @@
 		A3077FC41C0D25E4001E1FEC /* SentimentalChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */; };
 		A3077FCD1C0FB0EF001E1FEC /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */; };
 		A3077FD21C126B1E001E1FEC /* ChartTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3077FD11C126B1E001E1FEC /* ChartTabViewController.swift */; };
+		A30D103E1C97863700506A0C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D103D1C97863700506A0C /* User.swift */; };
+		A30D10461C97870100506A0C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D10451C97870100506A0C /* User+CoreDataProperties.swift */; };
+		A30D10481C978ABE00506A0C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D10471C978ABE00506A0C /* UserManager.swift */; };
+		A30D104C1C9792EB00506A0C /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D104B1C9792EB00506A0C /* UserEntity.swift */; };
+		A30D104E1C97940600506A0C /* UserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D104D1C97940600506A0C /* UserContract.swift */; };
+		A30D10501C97C8E600506A0C /* UserTrackServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D104F1C97C8E600506A0C /* UserTrackServices.swift */; };
 		A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */; };
 		A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */; };
 		A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746B1C0BDD5A0064E34D /* Stock.swift */; };
@@ -40,6 +46,7 @@
 		A3C8FC291C17F3A60058609C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */; };
 		A3C8FC2B1C17F3AF0058609C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */; };
 		A3C8FC2E1C17FCC50058609C /* FaceBookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */; };
+		A3E66A3F1C99513100562929 /* WatchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E66A3E1C99513100562929 /* WatchListService.swift */; };
 		A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */; };
 		A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */; };
 		A3FA71571BF8529B00CB4E79 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FA71561BF8529B00CB4E79 /* StockTableViewCell.xib */; };
@@ -153,6 +160,12 @@
 		A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentalChartViewController.swift; sourceTree = "<group>"; };
 		A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		A3077FD11C126B1E001E1FEC /* ChartTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTabViewController.swift; sourceTree = "<group>"; };
+		A30D103D1C97863700506A0C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A30D10451C97870100506A0C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A30D10471C978ABE00506A0C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		A30D104B1C9792EB00506A0C /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		A30D104D1C97940600506A0C /* UserContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContract.swift; sourceTree = "<group>"; };
+		A30D104F1C97C8E600506A0C /* UserTrackServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackServices.swift; sourceTree = "<group>"; };
 		A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockIInfoViewController.swift; sourceTree = "<group>"; };
 		A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stock+CoreDataProperties.swift"; path = "../Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A33D746B1C0BDD5A0064E34D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stock.swift; path = ../Stock.swift; sourceTree = "<group>"; };
@@ -186,6 +199,7 @@
 		A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceBookLoginViewController.swift; sourceTree = "<group>"; };
+		A3E66A3E1C99513100562929 /* WatchListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListService.swift; sourceTree = "<group>"; };
 		A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		A3FA714A1BF8459900CB4E79 /* Stock Analyzer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stock Analyzer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -240,6 +254,23 @@
 				A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */,
 			);
 			name = "Charts view Controller";
+			sourceTree = "<group>";
+		};
+		A30D10491C9792C400506A0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A30D104B1C9792EB00506A0C /* UserEntity.swift */,
+				A30D104F1C97C8E600506A0C /* UserTrackServices.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A30D104A1C9792D100506A0C /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				A30D104D1C97940600506A0C /* UserContract.swift */,
+			);
+			name = Contract;
 			sourceTree = "<group>";
 		};
 		A38CD15C1BE582D000E3B406 = {
@@ -323,6 +354,8 @@
 				A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */,
 				A33D746B1C0BDD5A0064E34D /* Stock.swift */,
 				A38CD16F1BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld */,
+				A30D103D1C97863700506A0C /* User.swift */,
+				A30D10451C97870100506A0C /* User+CoreDataProperties.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -357,6 +390,7 @@
 				A3A4DAE31BEA088D007F56EA /* SearchTabTableViewController.swift */,
 				A33D746E1C0C1C940064E34D /* fileOne.strings */,
 				A3A4DAE71BEB245C007F56EA /* UpdateSearchResultController.swift */,
+				A3E66A3E1C99513100562929 /* WatchListService.swift */,
 			);
 			name = "Search view Controller";
 			sourceTree = "<group>";
@@ -390,7 +424,10 @@
 		A3C8FC2C1C17FC990058609C /* Face Book Login */ = {
 			isa = PBXGroup;
 			children = (
+				A30D104A1C9792D100506A0C /* Contract */,
+				A30D10491C9792C400506A0C /* Model */,
 				A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */,
+				A30D10471C978ABE00506A0C /* UserManager.swift */,
 			);
 			name = "Face Book Login";
 			sourceTree = "<group>";
@@ -475,6 +512,7 @@
 				TargetAttributes = {
 					A38CD1641BE582D000E3B406 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = TM6GJM42MY;
 					};
 					A38CD17B1BE582D000E3B406 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -615,21 +653,28 @@
 				A3A4DADD1BE9F93D007F56EA /* DeleteStockTableCell.swift in Sources */,
 				A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */,
 				A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */,
+				A30D104C1C9792EB00506A0C /* UserEntity.swift in Sources */,
 				A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */,
 				A3077FC41C0D25E4001E1FEC /* SentimentalChartViewController.swift in Sources */,
 				A3077FCD1C0FB0EF001E1FEC /* PieChartViewController.swift in Sources */,
 				A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */,
 				A38CD1711BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld in Sources */,
+				A30D103E1C97863700506A0C /* User.swift in Sources */,
+				A30D104E1C97940600506A0C /* UserContract.swift in Sources */,
 				A38CD1E01BE6E2D900E3B406 /* DetailStockViewController.swift in Sources */,
 				A3077FC21C0D25D0001E1FEC /* PriceChartViewController.swift in Sources */,
 				A3077FD21C126B1E001E1FEC /* ChartTabViewController.swift in Sources */,
+				A3E66A3F1C99513100562929 /* WatchListService.swift in Sources */,
 				A3C8FC2E1C17FCC50058609C /* FaceBookLoginViewController.swift in Sources */,
 				A3A4DAD61BE9F2D6007F56EA /* AddStockTableCell.swift in Sources */,
 				A3A4DAE81BEB245C007F56EA /* UpdateSearchResultController.swift in Sources */,
 				A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */,
 				A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */,
+				A30D10461C97870100506A0C /* User+CoreDataProperties.swift in Sources */,
 				A3A4DAE41BEA088D007F56EA /* SearchTabTableViewController.swift in Sources */,
 				A38CD1BF1BE5B25F00E3B406 /* WatchListViewController.swift in Sources */,
+				A30D10481C978ABE00506A0C /* UserManager.swift in Sources */,
+				A30D10501C97C8E600506A0C /* UserTrackServices.swift in Sources */,
 				A38CD1BD1BE5B20200E3B406 /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +828,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -792,6 +839,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.priya273.Stock-Analyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Stock Analyzer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -802,6 +850,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -811,6 +861,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.priya273.Stock-Analyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Stock Analyzer-Bridging-Header.h";
 			};
 			name = Release;

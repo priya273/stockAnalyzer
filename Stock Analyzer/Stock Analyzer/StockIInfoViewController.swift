@@ -32,13 +32,20 @@ class StockIInfoViewController: UIViewController
         super.viewDidLoad()
         print(stock.symbol!)
         stockName.text = stock.name!
+        
+        self.ServiceCall()
+ 
+      }
+    
+    func ServiceCall()
+    {
         Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/Quote/json?", parameters: ["symbol" : self.stock.symbol!]).responseJSON {
             JSON in
-           // print(JSON)
+            // print(JSON)
             do
             {
                 let values = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
-               
+                
                 self.stock.open! =  values.valueForKey("Open") as! NSNumber
                 self.open.text = String(format:"%.2f", Double(self.stock.open!))
                 
@@ -53,21 +60,21 @@ class StockIInfoViewController: UIViewController
                 
                 self.stock.lastPrice! = values.valueForKey("LastPrice") as! NSNumber
                 self.lastPrice.text = String(format:"%.2f", Double(values.valueForKey("LastPrice") as! NSNumber))
-
+                
                 self.stock.volumn! = values.valueForKey("Volume") as! NSNumber
                 self.vol.text = self.computeInt(Double(values.valueForKey("Volume") as! NSNumber))
                 
                 self.stock.change! = values.valueForKey("Change") as! NSNumber
                 self.stock.changePercent! = values.valueForKey("ChangePercent") as! NSNumber
-            
+                
             }
             catch
             {
-                   self.alertTheUserSomethingWentWrong("TO DO", message:"Couldnt update other fields to \(self.stock.symbol!)", actionTitle: "okay")
+                self.alertTheUserSomethingWentWrong("Error looding", message:"Couldnt update other fields to \(self.stock.symbol!)", actionTitle: "okay")
                 //abort()
             }
         }
-      }
+    }
     
     func computeInt(value: Double) -> String
     {

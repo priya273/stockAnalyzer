@@ -15,11 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var userID : String?
+    var User : UserEntity?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //let rootviewController = self.window!.rootViewController as! RootViewController
         //rootviewController.managedObjectContext = self.managedObjectContext
+        
+         //user =
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -130,5 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
    
+    
+
 }
 

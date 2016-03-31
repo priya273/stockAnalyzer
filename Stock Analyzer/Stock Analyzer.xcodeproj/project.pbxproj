@@ -18,11 +18,11 @@
 		A30D10481C978ABE00506A0C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D10471C978ABE00506A0C /* UserManager.swift */; };
 		A30D104C1C9792EB00506A0C /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D104B1C9792EB00506A0C /* UserEntity.swift */; };
 		A30D104E1C97940600506A0C /* UserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D104D1C97940600506A0C /* UserContract.swift */; };
-		A30D10501C97C8E600506A0C /* UserTrackServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D104F1C97C8E600506A0C /* UserTrackServices.swift */; };
 		A33D74691C0B4EFD0064E34D /* StockIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */; };
 		A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */; };
 		A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D746B1C0BDD5A0064E34D /* Stock.swift */; };
 		A33D746F1C0C1C940064E34D /* fileOne.strings in Resources */ = {isa = PBXBuildFile; fileRef = A33D746E1C0C1C940064E34D /* fileOne.strings */; };
+		A35ABCC61CA8B1BE0078EDB2 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35ABCC51CA8B1BE0078EDB2 /* UserProvider.swift */; };
 		A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38CD1681BE582D000E3B406 /* AppDelegate.swift */; };
 		A38CD16E1BE582D000E3B406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38CD16C1BE582D000E3B406 /* Main.storyboard */; };
 		A38CD1711BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A38CD16F1BE582D000E3B406 /* Stock_Analyzer.xcdatamodeld */; };
@@ -46,6 +46,13 @@
 		A3C8FC291C17F3A60058609C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */; };
 		A3C8FC2B1C17F3AF0058609C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */; };
 		A3C8FC2E1C17FCC50058609C /* FaceBookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */; };
+		A3DA074D1C9A3B8200425A73 /* StockContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA074C1C9A3B8200425A73 /* StockContract.swift */; };
+		A3DA07551C9A477100425A73 /* ChartContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA07541C9A477100425A73 /* ChartContract.swift */; };
+		A3DA07571C9A487400425A73 /* ChartConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA07561C9A487400425A73 /* ChartConsumer.swift */; };
+		A3DA075B1C9A5FAF00425A73 /* QuoteConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA075A1C9A5FAF00425A73 /* QuoteConsumer.swift */; };
+		A3DA075D1C9A847900425A73 /* SentimentContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA075C1C9A847900425A73 /* SentimentContract.swift */; };
+		A3DA075F1C9A85F900425A73 /* SentimentConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA075E1C9A85F900425A73 /* SentimentConsumer.swift */; };
+		A3DA07611C9AA42200425A73 /* SentimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA07601C9AA42200425A73 /* SentimentModel.swift */; };
 		A3E66A3F1C99513100562929 /* WatchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E66A3E1C99513100562929 /* WatchListService.swift */; };
 		A3FA70F81BF80CE100CB4E79 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */; };
 		A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */; };
@@ -165,11 +172,11 @@
 		A30D10471C978ABE00506A0C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A30D104B1C9792EB00506A0C /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		A30D104D1C97940600506A0C /* UserContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContract.swift; sourceTree = "<group>"; };
-		A30D104F1C97C8E600506A0C /* UserTrackServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackServices.swift; sourceTree = "<group>"; };
 		A33D74681C0B4EFD0064E34D /* StockIInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockIInfoViewController.swift; sourceTree = "<group>"; };
 		A33D746A1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stock+CoreDataProperties.swift"; path = "../Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A33D746B1C0BDD5A0064E34D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stock.swift; path = ../Stock.swift; sourceTree = "<group>"; };
 		A33D746E1C0C1C940064E34D /* fileOne.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = fileOne.strings; sourceTree = "<group>"; };
+		A35ABCC51CA8B1BE0078EDB2 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		A38CD1651BE582D000E3B406 /* Stock Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stock Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38CD1681BE582D000E3B406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38CD16D1BE582D000E3B406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +206,13 @@
 		A3C8FC281C17F3A60058609C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		A3C8FC2A1C17F3AF0058609C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceBookLoginViewController.swift; sourceTree = "<group>"; };
+		A3DA074C1C9A3B8200425A73 /* StockContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockContract.swift; sourceTree = "<group>"; };
+		A3DA07541C9A477100425A73 /* ChartContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartContract.swift; sourceTree = "<group>"; };
+		A3DA07561C9A487400425A73 /* ChartConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartConsumer.swift; sourceTree = "<group>"; };
+		A3DA075A1C9A5FAF00425A73 /* QuoteConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteConsumer.swift; sourceTree = "<group>"; };
+		A3DA075C1C9A847900425A73 /* SentimentContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentContract.swift; sourceTree = "<group>"; };
+		A3DA075E1C9A85F900425A73 /* SentimentConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentConsumer.swift; sourceTree = "<group>"; };
+		A3DA07601C9AA42200425A73 /* SentimentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentModel.swift; sourceTree = "<group>"; };
 		A3E66A3E1C99513100562929 /* WatchListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListService.swift; sourceTree = "<group>"; };
 		A3FA70F71BF80CE100CB4E79 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		A3FA71481BF8440C00CB4E79 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
@@ -252,6 +266,7 @@
 				A3077FC11C0D25D0001E1FEC /* PriceChartViewController.swift */,
 				A3077FC31C0D25E4001E1FEC /* SentimentalChartViewController.swift */,
 				A3077FCC1C0FB0EF001E1FEC /* PieChartViewController.swift */,
+				A3DA07601C9AA42200425A73 /* SentimentModel.swift */,
 			);
 			name = "Charts view Controller";
 			sourceTree = "<group>";
@@ -260,17 +275,16 @@
 			isa = PBXGroup;
 			children = (
 				A30D104B1C9792EB00506A0C /* UserEntity.swift */,
-				A30D104F1C97C8E600506A0C /* UserTrackServices.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		A30D104A1C9792D100506A0C /* Contract */ = {
+		A35ABCC41CA8B1A30078EDB2 /* OutBoundProvider */ = {
 			isa = PBXGroup;
 			children = (
-				A30D104D1C97940600506A0C /* UserContract.swift */,
+				A35ABCC51CA8B1BE0078EDB2 /* UserProvider.swift */,
 			);
-			name = Contract;
+			name = OutBoundProvider;
 			sourceTree = "<group>";
 		};
 		A38CD15C1BE582D000E3B406 = {
@@ -302,6 +316,10 @@
 		A38CD1671BE582D000E3B406 /* Stock Analyzer */ = {
 			isa = PBXGroup;
 			children = (
+				A35ABCC41CA8B1A30078EDB2 /* OutBoundProvider */,
+				A3DA07531C9A406E00425A73 /* OutBoundContracts */,
+				A3DA07521C9A404900425A73 /* InBoundServices */,
+				A3DA07511C9A403A00425A73 /* InBoundContracts */,
 				A3C8FC2C1C17FC990058609C /* Face Book Login */,
 				A3FA70F61BF80C6500CB4E79 /* Table view Controllers */,
 				A3A4DAD91BE9F7BD007F56EA /* Table view Cell for Delete */,
@@ -386,11 +404,11 @@
 		A3A4DAD81BE9F55D007F56EA /* Search view Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A3DA074A1C9A22BC00425A73 /* model */,
 				A3A4DADE1BEA00BA007F56EA /* Search.storyboard */,
 				A3A4DAE31BEA088D007F56EA /* SearchTabTableViewController.swift */,
 				A33D746E1C0C1C940064E34D /* fileOne.strings */,
 				A3A4DAE71BEB245C007F56EA /* UpdateSearchResultController.swift */,
-				A3E66A3E1C99513100562929 /* WatchListService.swift */,
 			);
 			name = "Search view Controller";
 			sourceTree = "<group>";
@@ -424,12 +442,47 @@
 		A3C8FC2C1C17FC990058609C /* Face Book Login */ = {
 			isa = PBXGroup;
 			children = (
-				A30D104A1C9792D100506A0C /* Contract */,
 				A30D10491C9792C400506A0C /* Model */,
 				A3C8FC2D1C17FCC50058609C /* FaceBookLoginViewController.swift */,
 				A30D10471C978ABE00506A0C /* UserManager.swift */,
 			);
 			name = "Face Book Login";
+			sourceTree = "<group>";
+		};
+		A3DA074A1C9A22BC00425A73 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A3E66A3E1C99513100562929 /* WatchListService.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		A3DA07511C9A403A00425A73 /* InBoundContracts */ = {
+			isa = PBXGroup;
+			children = (
+				A3DA074C1C9A3B8200425A73 /* StockContract.swift */,
+				A3DA07541C9A477100425A73 /* ChartContract.swift */,
+				A3DA075C1C9A847900425A73 /* SentimentContract.swift */,
+			);
+			name = InBoundContracts;
+			sourceTree = "<group>";
+		};
+		A3DA07521C9A404900425A73 /* InBoundServices */ = {
+			isa = PBXGroup;
+			children = (
+				A3DA07561C9A487400425A73 /* ChartConsumer.swift */,
+				A3DA075A1C9A5FAF00425A73 /* QuoteConsumer.swift */,
+				A3DA075E1C9A85F900425A73 /* SentimentConsumer.swift */,
+			);
+			name = InBoundServices;
+			sourceTree = "<group>";
+		};
+		A3DA07531C9A406E00425A73 /* OutBoundContracts */ = {
+			isa = PBXGroup;
+			children = (
+				A30D104D1C97940600506A0C /* UserContract.swift */,
+			);
+			name = OutBoundContracts;
 			sourceTree = "<group>";
 		};
 		A3FA70F61BF80C6500CB4E79 /* Table view Controllers */ = {
@@ -650,7 +703,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DA07611C9AA42200425A73 /* SentimentModel.swift in Sources */,
 				A3A4DADD1BE9F93D007F56EA /* DeleteStockTableCell.swift in Sources */,
+				A3DA075B1C9A5FAF00425A73 /* QuoteConsumer.swift in Sources */,
 				A33D746C1C0BDD5A0064E34D /* Stock+CoreDataProperties.swift in Sources */,
 				A38CD1691BE582D000E3B406 /* AppDelegate.swift in Sources */,
 				A30D104C1C9792EB00506A0C /* UserEntity.swift in Sources */,
@@ -662,19 +717,24 @@
 				A30D103E1C97863700506A0C /* User.swift in Sources */,
 				A30D104E1C97940600506A0C /* UserContract.swift in Sources */,
 				A38CD1E01BE6E2D900E3B406 /* DetailStockViewController.swift in Sources */,
+				A3DA07571C9A487400425A73 /* ChartConsumer.swift in Sources */,
 				A3077FC21C0D25D0001E1FEC /* PriceChartViewController.swift in Sources */,
 				A3077FD21C126B1E001E1FEC /* ChartTabViewController.swift in Sources */,
 				A3E66A3F1C99513100562929 /* WatchListService.swift in Sources */,
 				A3C8FC2E1C17FCC50058609C /* FaceBookLoginViewController.swift in Sources */,
+				A3DA074D1C9A3B8200425A73 /* StockContract.swift in Sources */,
 				A3A4DAD61BE9F2D6007F56EA /* AddStockTableCell.swift in Sources */,
+				A35ABCC61CA8B1BE0078EDB2 /* UserProvider.swift in Sources */,
 				A3A4DAE81BEB245C007F56EA /* UpdateSearchResultController.swift in Sources */,
+				A3DA075F1C9A85F900425A73 /* SentimentConsumer.swift in Sources */,
 				A3FA71491BF8440C00CB4E79 /* StockTableViewCell.swift in Sources */,
+				A3DA07551C9A477100425A73 /* ChartContract.swift in Sources */,
 				A33D746D1C0BDD5A0064E34D /* Stock.swift in Sources */,
 				A30D10461C97870100506A0C /* User+CoreDataProperties.swift in Sources */,
 				A3A4DAE41BEA088D007F56EA /* SearchTabTableViewController.swift in Sources */,
 				A38CD1BF1BE5B25F00E3B406 /* WatchListViewController.swift in Sources */,
 				A30D10481C978ABE00506A0C /* UserManager.swift in Sources */,
-				A30D10501C97C8E600506A0C /* UserTrackServices.swift in Sources */,
+				A3DA075D1C9A847900425A73 /* SentimentContract.swift in Sources */,
 				A38CD1BD1BE5B20200E3B406 /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

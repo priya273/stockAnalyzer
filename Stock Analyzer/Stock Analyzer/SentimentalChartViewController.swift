@@ -9,28 +9,68 @@
 import UIKit
 import Charts
 
-class SentimentalChartViewController: UIViewController
+class SentimentalChartViewController: UIViewController, SentimentConsumerDelegate
 {
 
   
     @IBOutlet weak var barChartView: BarChartView!
-    
+    @IBOutlet weak var val: UILabel!
+    var size = 6
     var date : [String]!
     
+    var sentiments : SentimentModel?
+    var stock : Stock!
+    
+    var parentcontroller : ChartTabViewController?
+  
+    var contract : SentimentContract?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+       
+        self.barChartView.noDataText = "No Data Available";
+        parentcontroller = (self.parentViewController as! ChartTabViewController)
+        self.stock = parentcontroller!.stock
 
+        self.contract = parentcontroller!.sentiments
+        
+      
+        CallService()
+       
         // Do any additional setup after loading the view.
         
-        date = ["1 Jan","2 Jan","3 Jan","4 Jan","5 Jan","6 Jan"]
-        let positiveResponse = [50.9, 55.8, 60.8, 49.0, 45.0, 80.0]
-        let negativeResponse = [49.1, 44.2, 30.2, 51.0, 55.0, 20.0];
+        //staticMethod()
+       
         
         barChartView.backgroundColor =  UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
-       // setCharts(date, values: positiveResponse)
-        setChart(date, valOne: positiveResponse, valTwo: negativeResponse)
+        
+    }
+    
+    func staticMethod()
+    {
+        date = ["Mar 16","Mar 17"]
+        let p: [Double] = [436, 106]
+        let n : [Double] = [583, 167]
+        
+        let model = SentimentModel()
+        
+        for(var i = 0; i < date.count; i++)
+        {
+            model.Dates.append(date[i])
+             model.Positive.append(p[i])
+             model.Negative.append(n[i])
+        }
+        
+        
+        setChart(self.date, valOne: model.Positive, valTwo: model.Negative)
+    }
+    
+    func CallService()
+    {
+        let service = SentimentConsumer()
+        service.delegate = self;
+        service.Run(stock.symbol!, id: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,6 +78,11 @@ class SentimentalChartViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func  ShowChart()
+    {
+        
+         setChart(self.sentiments!.Dates, valOne: self.sentiments!.Positive, valTwo: self.sentiments!.Negative)
+    }
 
     /*
     // MARK: - Navigation
@@ -48,9 +93,6 @@ class SentimentalChartViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
-
-    
-    
     
     
     //MARK: -Charts
@@ -91,6 +133,7 @@ class SentimentalChartViewController: UIViewController
         
         barChartView.descriptionText = ""
         barChartView.xAxis.labelPosition = .Bottom
+        //barChartView.draw
     
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
@@ -99,37 +142,22 @@ class SentimentalChartViewController: UIViewController
     }
     
     
-    
-    func setCharts(dataPoints : [String], values : [Double])
+    func ServiceFailed(message: String)
     {
-        var dataEntries : [BarChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count
-        {
-            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
-            dataEntries.append(dataEntry)
-        }
-        
-        //Describe what the y values are with the object chardataset
-        let yValuesDataSet = BarChartDataSet(yVals: dataEntries, label: "Positive sentiments")
-        
-        
-        let xValuesWithCorrespondingYValuesData = BarChartData(xVals: date, dataSet: yValuesDataSet)
-        yValuesDataSet.colors = [UIColor.greenColor()]
+        self.barChartView.noDataText = message;
+    }
     
-        //Set it to the barchart view object
+    func ServicePassed(sentiment: SentimentContract)
+    {
+       
+        self.parentcontroller?.sentiments = sentiment
+        self.contract = sentiment;
         
-        barChartView.data = xValuesWithCorrespondingYValuesData
-        barChartView.rightAxis.drawLabelsEnabled = false;
-        barChartView.descriptionText = ""
-      
-        barChartView.xAxis.labelPosition = .Bottom
-        barChartView.backgroundColor = UIColor.grayColor()
-        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
- 
-        barChartView.scaleYEnabled = false
-        barChartView.scaleXEnabled = false
-   
+        self.date = sentiment.Dates
+        
+         setChart(date, valOne: sentiment.Positive, valTwo: sentiment.Negative)
+
     }
 
+    
 }

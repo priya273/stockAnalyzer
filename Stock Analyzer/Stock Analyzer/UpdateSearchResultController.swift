@@ -45,7 +45,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
         tableView.registerNib(nib, forCellReuseIdentifier: AddStockTableCellIdentifier);
         
         activityIndicatorView = UIActivityIndicatorView()
-      //activityIndicatorView!.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
+      
     
         activityIndicatorView!.color = UIColor.greenColor()
         activityIndicatorView!.frame = CGRect(x: self.view.frame.width / 2 , y: 20.0 , width: 55.0, height: 55.0)
@@ -177,7 +177,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
         }
   
                tableView.reloadData();
-                 }
+    }
 
     
 

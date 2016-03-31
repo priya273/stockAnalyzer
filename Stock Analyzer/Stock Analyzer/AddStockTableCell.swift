@@ -17,6 +17,7 @@ protocol AddStockTableCellDelegate
 class AddStockTableCell: UITableViewCell
 {
 
+    @IBOutlet weak var FollowButton: UIButton!
     var delegate: AddStockTableCellDelegate?
     
     @IBOutlet weak var labelNameSymbol: UILabel!
@@ -36,6 +37,8 @@ class AddStockTableCell: UITableViewCell
     override func awakeFromNib()
     {
         super.awakeFromNib()
+        FollowButton.enabled = true;
+        
         // Initialization code
     }
 

@@ -13,24 +13,50 @@ import FBSDKCoreKit
 
 class WatchListViewController: BaseTableViewController
 {
-   let tableViewCellIdentifier = "CellTableIdentifier";
-    
+    let tableViewCellIdentifier = "CellTableIdentifier";
+    var name : NSString?
   
+   
+    @IBOutlet weak var userName: UIBarButtonItem!
+    
     private var detailStockViewController:DetailStockViewController!
 
-
-
+   
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        name  = (UIApplication.sharedApplication().delegate as! AppDelegate).User!.name! as NSString
+    
+        if( name!.length > 8)
+        {
+            name = GetUserNameUpToLimitedCharaterOrFirstEmptySpace(name!)
+        }
+        
+        
+        userName.title = "\(name!)"
         tableView.registerClass(StockTableViewCell.self, forCellReuseIdentifier: tableViewCellIdentifier);
         let nib = UINib(nibName: "StockTableViewCell", bundle: nil);
         tableView.registerNib(nib, forCellReuseIdentifier: tableViewCellIdentifier);
         tableView.tableFooterView = UIView()
         
-
+      
     }
-
+    
+    func GetUserNameUpToLimitedCharaterOrFirstEmptySpace(name : NSString) -> NSString
+    {
+        let temp = name.componentsSeparatedByString(" ") as [NSString];
+        if(temp[0].length > 8)
+        {
+           return name.substringToIndex(8)
+            
+        }
+        else
+        {
+            return temp[0]
+        }
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -41,6 +67,7 @@ class WatchListViewController: BaseTableViewController
     {
         
         self.tabBarController?.tabBar.hidden = false;
+          backgroundThread(15.0, background: GetLatestStockQuotes, completion: GetLatestStockQuotes)
     }
     
     
@@ -56,7 +83,6 @@ class WatchListViewController: BaseTableViewController
         //cell.name = stock.valueForKey("name") as! String
         //cell.symbol = stock.valueForKey("symbol") as! String;
         configureCell(cell, atIndexPath: indexPath)
-        
 
         return cell;
         
@@ -74,9 +100,12 @@ class WatchListViewController: BaseTableViewController
        
         
     }
+   
     
     @IBAction func logout(sender: UIBarButtonItem)
     {
+        //Do all saving
+        
         FBSDKAccessToken.setCurrentAccessToken(nil)
         let facebookloginpage = self.storyboard?.instantiateViewControllerWithIdentifier("FaceBookLoginViewController") as! FaceBookLoginViewController
         let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -113,7 +142,62 @@ class WatchListViewController: BaseTableViewController
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool)
+    {
         self.tableView.reloadData()
     }
+    
+    
+    
+    var GetLatestStockQuotes = 
+    {
+        var context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest()
+        // Edit the entity name as appropriate.
+        let entity = NSEntityDescription.entityForName("Stock", inManagedObjectContext: context)
+        fetchRequest.entity = entity;
+        
+        do
+        {
+            let results = try context.executeFetchRequest(fetchRequest)
+            
+            if(results.count > 0)
+            {
+                let service = QuoteConsumer();
+                
+                
+                for( var i = 0; i < results.count; i++)
+                {
+                    let stockEntity = results[i] as! Stock
+                    service.GetStockPriceAndChange(stockEntity)
+                    
+                }
+            }
+        }
+        catch
+        {
+            print("Failed to fetch");
+        }
+        
+        
+
+    }
+    
+ 
+    
+    
+    func backgroundThread(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil)
+    {
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0))
+            {
+            if(background != nil){ background!(); }
+            
+            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+            dispatch_after(popTime, dispatch_get_main_queue()) {
+                if(completion != nil){ completion!(); }
+            }
+        }
+    }
+    
+    
 }

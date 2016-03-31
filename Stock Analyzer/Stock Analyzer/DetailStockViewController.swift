@@ -11,6 +11,7 @@ import UIKit
 class DetailStockViewController: UIViewController
 {
     var stock : Stock!
+    var Chart : ChartContract!
     
     override func viewDidLoad()
     {

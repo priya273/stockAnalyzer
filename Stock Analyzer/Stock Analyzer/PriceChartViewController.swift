@@ -8,10 +8,9 @@
 
 import UIKit
 import Charts
-
-import Alamofire
 import Foundation
-class PriceChartViewController: UIViewController, ChartViewDelegate
+
+class PriceChartViewController: UIViewController, ChartViewDelegate, ChartConsumerDelegate
 
 {
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
@@ -19,25 +18,55 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
     @IBOutlet weak var chartView: UIView!
     
     @IBOutlet weak var priceInformation: UILabel!
-    var stock : Stock!
-
-    var Positions : [Double] = []
-    var Dates : [String] = []
     
-    var prices : [Double] = []
+    var stock : Stock!
+   
     var dateComponentList : [NSDateComponents] = []
+    
     var dataAvailable : Bool = false
 
     var lineChartView : LineChartView!
     
+    var ChartModel : ChartContract?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        DoAllNetworkCalls()
+
+        let parentController = (self.parentViewController as! ChartTabViewController)
+        self.stock = parentController.stock
+       
+        let service = ChartConsumer();
+        service.delegate = self;
+        service.Run(self.stock.symbol!, id: (UIApplication.sharedApplication().delegate as! AppDelegate).userID!)
+        //DoAllNetworkCalls()
 
     }
+    
+    
+    func ServiceFailed(message: String, exception: Bool)
+    {
+        if(exception == false)
+        {
+              self.priceInformation.text = message
+        }
+        else
+        {
+            self.alertTheUserSomethingWentWrong("Problem loading graph", message: message, actionTitle: "okay")
+        }
+       
+    }
+    
+    
+    func ServicePassed(chart: ChartContract, dataAvailable: Bool)
+    {
+        self.dataAvailable = dataAvailable;
+        self.ChartModel = chart;
+        ParseAndUpdateDate()
+        self.setChart((self.ChartModel?.Positions)!, value: (self.ChartModel?.Prices)!)
+    
+    }
+
     
     override func didReceiveMemoryWarning()
     {
@@ -45,62 +74,18 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         
     }
     
-    func DoAllNetworkCalls()
+    func ParseAndUpdateDate()
     {
-        let parentVC = self.parentViewController as! ChartTabViewController
-        self.stock = parentVC.stock
         
-        print("Printing before view load")
-        print(stock.symbol!)
-        
-        let params = "{\"Normalized\":false,\"NumberOfDays\":365,\"DataPeriod\":\"Day\",\"Elements\":[{\"Symbol\":\"\(stock.symbol!)\",\"Type\":\"price\",\"Params\":[\"c\"]}]}"
-        //let escapedParams = params.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
-        
-        Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/InteractiveChart/json", parameters: ["parameters" : params]).responseJSON {
-            JSON in
-            //  print(JSON)
-            do
-            {
-                let serialization = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
-                
-                if(serialization.valueForKey("Elements")?.count > 0)
-                {
-                    self.dataAvailable = true
-                    self.Positions = serialization.valueForKey("Positions") as! [Double]
-                    self.Dates = serialization.valueForKey("Dates") as! [String]
-                    
-                    self.setDateComponent()
-                    
-                    let value = (((serialization.valueForKey("Elements") as! NSArray).valueForKey("DataSeries") as! NSArray ).valueForKey("close") as! NSArray).valueForKey("values") as! NSArray
-                    self.prices = value[0] as! [Double]
-                    
-                    self.setChart(self.Positions, value: self.prices)
-                }
-                else
-                {
-                    self.priceInformation.text = "No data availabe to load"
-                }
-            }
-            catch
-            {
-                 self.alertTheUserSomethingWentWrong("Problem loading graph", message: "something went wrong, could be the network", actionTitle: "okay")
-            }
-        }
-
-    }
-    
-    
-    func setDateComponent()
-    {
         let dateFormatter = NSDateFormatter()
-        //dateFormatter.locale = NSLocale(localeIdentifier: "")
+    
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
         let calender = NSCalendar.currentCalendar()
-               for( var i = 0; i < Dates.count; i++)
+        for( var i = 0; i < self.ChartModel?.Dates.count; i++)
         {
             
-            if let date : NSDate = dateFormatter.dateFromString(Dates[i])!
+            if let date : NSDate = dateFormatter.dateFromString( (self.ChartModel?.Dates[i])!)!
             {
                 let dateComponent : NSDateComponents = calender.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
                 
@@ -108,9 +93,10 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
             }
             
         }
+
         
     }
-
+    
     func setChart(dataPoints: [Double], value: [Double])
     {
 
@@ -193,5 +179,75 @@ class PriceChartViewController: UIViewController, ChartViewDelegate
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
+    
+    
+    /*
+    func DoAllNetworkCalls()
+    {
+    
+    let parentVC = self.parentViewController as! ChartTabViewController
+    self.stock = parentVC.stock
+    
+    print("Printing before view load")
+    print(stock.symbol!)
+    
+    let params = "{\"Normalized\":false,\"NumberOfDays\":365,\"DataPeriod\":\"Day\",\"Elements\":[{\"Symbol\":\"\(stock.symbol!)\",\"Type\":\"price\",\"Params\":[\"c\"]}]}"
+    //let escapedParams = params.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+    
+    Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/InteractiveChart/json", parameters: ["parameters" : params]).responseJSON {
+    JSON in
+    //  print(JSON)
+    do
+    {
+    let serialization = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
+    
+    if(serialization.valueForKey("Elements")?.count > 0)
+    {
+    self.dataAvailable = true
+    self.Positions = serialization.valueForKey("Positions") as! [Double]
+    self.Dates = serialization.valueForKey("Dates") as! [String]
+    
+    self.setDateComponent()
+    
+    let value = (((serialization.valueForKey("Elements") as! NSArray).valueForKey("DataSeries") as! NSArray ).valueForKey("close") as! NSArray).valueForKey("values") as! NSArray
+    self.prices = value[0] as! [Double]
+    
+    self.setChart(self.Positions, value: self.prices)
+    }
+    else
+    {
+    self.priceInformation.text = "No data availabe to load"
+    }
+    }
+    catch
+    {
+    self.alertTheUserSomethingWentWrong("Problem loading graph", message: "something went wrong, could be the network", actionTitle: "okay")
+    }
+    }
+    
+    }
+    func setDateComponent()
+    {
+    /* let dateFormatter = NSDateFormatter()
+    //dateFormatter.locale = NSLocale(localeIdentifier: "")
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    
+    let calender = NSCalendar.currentCalendar()
+    for( var i = 0; i < Dates.count; i++)
+    {
+    
+    if let date : NSDate = dateFormatter.dateFromString(Dates[i])!
+    {
+    let dateComponent : NSDateComponents = calender.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
+    
+    dateComponentList.append(dateComponent)
+    }
+    
+    }*/
+    
+    }
+    
+    */
+    
 
 }

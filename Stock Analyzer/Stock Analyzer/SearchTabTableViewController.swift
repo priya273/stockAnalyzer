@@ -10,15 +10,17 @@ import CoreData
 import UIKit
 import Alamofire
 
-class SearchTabTableViewController: BaseTableViewController, updateSearchResultProtocol
+
+class SearchTabTableViewController: BaseTableViewController, updateSearchResultProtocol,QuoteConsumerDelegate
 {
     
     let DeleteStockTableCellIdentifier = "DeleteStockTableCell";
     
     //Create a searchview controller
     var searchViewController : UISearchController!;
-    
-    
+    var userID: String!
+    var context : NSManagedObjectContext?
+
     //Register the table view cell: DeleteStockTableCell to the table view class.
     //Since we using a customized cell, we need to indicate the table view, where it can find the
     //corresponding nib files. And also register the nib file with the table view.
@@ -27,12 +29,17 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
     {
         super.viewDidLoad()
         
+        userID = (UIApplication.sharedApplication().delegate as! AppDelegate).userID;
+        context = self.fetchedResultsController.managedObjectContext
+        
         configureTableView();
         
         //For searching items
         setUpSearchController();
         
         navigationItem.rightBarButtonItem = editButtonItem();
+        
+       
     }
  
     
@@ -98,11 +105,14 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
          cellCur.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
+    
     func takeControl(searchState: String)
     {
         searchViewController.active = false;
         clearSearchBar(searchState)
     }
+    
+    
     func clearSearchBar(search : String)
     {
         
@@ -112,7 +122,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         
     }
 
-      func addItem(name: String, symbol: String)
+    func addItem(name: String, symbol: String)
     {
         self.searchViewController.active = false;
         print("you selected \(name) and \(symbol)")
@@ -129,77 +139,81 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
 
         else
         {
-            //Add new symbol
-            AddNewStockToWatchList(name, symbol: symbol)
+            AddStockToWatchList(name, symbol: symbol)
         }
     }
     
-    func AddNewStockToWatchList(name: String, symbol: String)
+    
+    func AddStockToWatchList(name: String, symbol: String)
     {
-        let context = self.fetchedResultsController.managedObjectContext
+        
+        let service = QuoteConsumer()
+        service.delegate = self;
+        service.Run(symbol, id: nil)
+    }
+    
+     // Mark :- QuoteSErvice Protocol
+    func ServiceFailed(message: String)
+    {
+         self.alertTheUserSomethingWentWrong("Try again later", message: message, actionTitle: "okay")
+    }
+    
+    
+    func ServicePassed(contract: StockContract)
+    {
+        
+        
         let entity2 = self.fetchedResultsController.fetchRequest.entity!
         
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity2.name!, inManagedObjectContext: context) as! Stock
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity2.name!, inManagedObjectContext: self.context!) as! Stock
         
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+        MapContractToModel(newManagedObject, contract: contract);
         
-        
-        newManagedObject.name = name;
-        newManagedObject.symbol = symbol;
-        
-        setAllVariables(newManagedObject)
-        
-        
+       
         // Save the context.
-        do {
-            try context.save()
-        } catch
+        do
         {
+            try self.fetchedResultsController.managedObjectContext.save()
+            let id = (UIApplication.sharedApplication().delegate as! AppDelegate).userID;
+            let service = WatchListService()
+            service.PutItemToWatchList(contract.symbol!, id: (id)!)
+         } catch
+         {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-           
+            
             
             //First save the symbol to the watch list.
             NSLog("There was a problem to insert");
             
-            self.alertTheUserSomethingWentWrong("Try again later", message:"unable to add \(newManagedObject.symbol!) to your watch List", actionTitle: "okay")
+            self.alertTheUserSomethingWentWrong("Try again later", message:"unable to add \(contract.symbol!) to your watch List ", actionTitle: "okay")
         }
+
+        
         
     }
     
-    func setAllVariables(object : Stock)
-    {
+   // Mark :- Helper Functions
+     func MapContractToModel(manangedObject: Stock, contract: StockContract)
+     {
+        manangedObject.change =  contract.change
+        manangedObject.changePercent = contract.changePercent
+        manangedObject.exchange = contract.exchange
+        manangedObject.high = contract.high
+        manangedObject.lastPrice = contract.lastPrice
+        manangedObject.low = contract.low
+        manangedObject.marketCap = contract.marketCap
+        manangedObject.name = contract.name
+         manangedObject.open = contract.open
+         manangedObject.symbol = contract.symbol
+         manangedObject.timestamp = contract.timestamp
         
-        Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/Quote/json?", parameters: ["symbol" : object.symbol!]).responseJSON {
-            JSON in
-            do
-            {
-                let values = try NSJSONSerialization.JSONObjectWithData(JSON.data! as NSData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
-                
-                object.open =  values.valueForKey("Open") as? NSNumber
-                object.high = values.valueForKey("High") as? NSNumber
-                object.low =  values.valueForKey("Low") as? NSNumber
-                object.marketCap = values.valueForKey("MarketCap") as? NSNumber
-                
-                object.lastPrice = values.valueForKey("LastPrice") as? NSNumber
-                
-                object.volumn = values.valueForKey("Volume") as? NSNumber
-                object.change = values.valueForKey("Change") as? NSNumber
-                object.changePercent = values.valueForKey("ChangePercent") as? NSNumber
-                
-                
-            }
-            catch
-            {
-               
-                self.alertTheUserSomethingWentWrong("You Selected \(object.symbol!)", message: "something went wrong, could be the network", actionTitle: "okay")
-            }
-            
-            
-        }
+         manangedObject.volumn = contract.volumn
 
-    }
+     }
+
     func CheckIfTheSymbolAlreadyExist(symbol : String) -> Bool
     {
      
@@ -226,7 +240,9 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         }
         catch
         {
-            abort()
+            //abort()
+            print("Unable to locate the managed Context, try again")
+            
         }
         
         return false;
@@ -268,7 +284,6 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
-    
     
     
 }

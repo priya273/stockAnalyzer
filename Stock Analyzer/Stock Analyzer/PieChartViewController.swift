@@ -8,22 +8,99 @@
 
 import UIKit
 import Charts
-class PieChartViewController: UIViewController {
+class PieChartViewController: UIViewController, SentimentConsumerDelegate
+{
 
     @IBOutlet weak var pieChartView: PieChartView!
+      var sentiments : SentimentContract?
+    var stock : Stock!
+    var parentcontroller : ChartTabViewController?
+    var SentimentValues = ["Positive","Negative"]
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        let sentiments = ["Positive","Negative"]
-        let averageSentiments = [56.92, 43.08]
+       
+        parentcontroller = (self.parentViewController as! ChartTabViewController)
+        self.stock = parentcontroller!.stock
         
-        setCharts(sentiments, values: averageSentiments)
+        self.sentiments = parentcontroller!.sentiments
+        
+       
+        
+        if(self.sentiments == nil)
+        {
+            CallService()
+        }
+        else
+        {
+           
+            ShowCharts()
+        }
+        
         
         // Do any additional setup after loading the view.
     }
+    func CallService()
+    {
+        let service = SentimentConsumer()
+        service.delegate = self;
+        service.Run(self.stock.symbol!, id: nil)
+    }
 
-    override func didReceiveMemoryWarning() {
+    func ShowCharts()
+    {
+        
+       // let averageSentiments = [56.92, 43.08]
+        
+         let averageSentiments = ComputeAverageSentiments()
+
+        
+        setCharts(SentimentValues, values: averageSentiments)
+    }
+    
+    func ComputeAverageSentiments() -> [Double]
+    {
+        var totalPositive = 0.0;
+        var totalNegaitve = 0.0
+        let count = self.sentiments!.Positive.count
+        for(var i = 1; i < count ; i++)
+        {
+            totalPositive += self.sentiments!.Positive[i]
+            totalNegaitve += self.sentiments!.Negative[i]
+        }
+        
+       /*if(count > 0)
+       {
+        totalNegaitve = GetAverage(totalNegaitve, count: count)
+        totalPositive = GetAverage(totalPositive, count: count)
+       }
+        
+       
+        */
+        
+        let ratioOFPositiveScore = (totalPositive / (totalPositive + totalNegaitve) * 100)
+        
+        let ratioOfNegativeScore = (totalNegaitve / (totalNegaitve + totalPositive) * 100)
+        
+        return [ ratioOFPositiveScore, ratioOfNegativeScore ]
+        
+    }
+    
+    func GetAverage( val : Double, count : Int) -> Double
+    {
+        if(val == 0 || count == 0)
+        {
+            return 0
+        }
+      
+        let result = val / Double(count)
+        return result;
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -53,7 +130,7 @@ class PieChartViewController: UIViewController {
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         
         pieChartView.data = pieChartData
-        pieChartView.descriptionText = "Average Sentiments over the last 6 days"
+        pieChartView.descriptionText = "Cummulative ratio of Positive over Negative Sentiments"
     }
     
     /*
@@ -65,5 +142,19 @@ class PieChartViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func ServiceFailed(message: String)
+    {
+        
+        self.pieChartView!.noDataText = "No Data available to load";
+    }
+    
+    func ServicePassed(sentiment: SentimentContract)
+    {
+        self.sentiments = sentiment;
+        self.parentcontroller?.sentiments = self.sentiments
+        
+        ShowCharts()
+    }
+
 
 }

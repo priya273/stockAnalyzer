@@ -10,7 +10,7 @@ import UIKit
 class ChartTabViewController: UITabBarController
 {
     var stock : Stock!
-
+    var sentiments : SentimentContract?
     
     override func viewDidLoad()
     {

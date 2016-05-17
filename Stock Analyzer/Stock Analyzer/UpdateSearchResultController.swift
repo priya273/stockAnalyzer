@@ -146,7 +146,7 @@ class UpdateSearchResultController: UITableViewController, AddStockTableCellDele
 
             self.activityIndicatorView!.hidden = true
             self.activityIndicatorView!.startAnimating()
-            Alamofire.request(.GET, "http://dev.markitondemand.com/Api/v2/Lookup/json?", parameters: ["input" : search!]).responseJSON {
+            Alamofire.request(.GET, "http://dev.markitondemand.com/MODApis/Api/v2/Lookup/json?", parameters: ["input" : search!]).responseJSON {
             JSON in
             
                 let data = JSON.data! as NSData;

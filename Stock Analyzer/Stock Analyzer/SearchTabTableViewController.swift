@@ -116,7 +116,7 @@ class SearchTabTableViewController: BaseTableViewController, updateSearchResultP
     func clearSearchBar(search : String)
     {
         
-        let alertController = UIAlertController(title: search, message: "Can not find " + search, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: search, message: "Unable to perform this operation right now." , preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
         

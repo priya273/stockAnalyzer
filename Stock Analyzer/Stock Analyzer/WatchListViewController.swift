@@ -21,7 +21,8 @@ class WatchListViewController: BaseTableViewController
     
     private var detailStockViewController:DetailStockViewController!
 
-   
+    private var IsVisible : Bool!
+
     
     override func viewDidLoad()
     {
@@ -33,14 +34,14 @@ class WatchListViewController: BaseTableViewController
             name = GetUserNameUpToLimitedCharaterOrFirstEmptySpace(name!)
         }
         
-        
+        IsVisible = true
         userName.title = "\(name!)"
         tableView.registerClass(StockTableViewCell.self, forCellReuseIdentifier: tableViewCellIdentifier);
         let nib = UINib(nibName: "StockTableViewCell", bundle: nil);
         tableView.registerNib(nib, forCellReuseIdentifier: tableViewCellIdentifier);
         tableView.tableFooterView = UIView()
         
-      
+        
     }
     
     func GetUserNameUpToLimitedCharaterOrFirstEmptySpace(name : NSString) -> NSString
@@ -67,9 +68,25 @@ class WatchListViewController: BaseTableViewController
     {
         
         self.tabBarController?.tabBar.hidden = false;
-          backgroundThread(15.0, background: GetLatestStockQuotes, completion: GetLatestStockQuotes)
+        IsVisible = true
+        //backgroundThread(3.0, background: GetLatestStockQuotes, completion: GetLatestStockQuotes)
+               
+        UpdateRealTimeQuotes()
+    
     }
     
+    func UpdateRealTimeQuotes() ->
+        Void
+    {
+        backgroundThread(3.0, background: GetLatestStockQuotes, completion: UpdateRealTimeQuotes)
+
+      if(IsVisible == true)
+      {
+        tableView.reloadData()
+        print("-----visible-----")
+      }
+        
+    }
     
     
     //Mark: - Data Source  Table view
@@ -131,6 +148,7 @@ class WatchListViewController: BaseTableViewController
     //Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
+     
        if(segue.identifier == "toDetailView")
        {
           let stock = sender as! Stock;
@@ -142,12 +160,22 @@ class WatchListViewController: BaseTableViewController
         
     }
     
+    override func viewWillDisappear(animated: Bool)
+    {
+           IsVisible = false;
+       
+    }
     override func viewWillAppear(animated: Bool)
     {
+         IsVisible = true;
+       
         self.tableView.reloadData()
     }
     
-    
+    func reloadTable(watchcontroller : WatchListViewController)-> Void
+    {
+        watchcontroller.tableView.reloadData()
+    }
     
     var GetLatestStockQuotes = 
     {
@@ -160,7 +188,7 @@ class WatchListViewController: BaseTableViewController
         do
         {
             let results = try context.executeFetchRequest(fetchRequest)
-            
+           
             if(results.count > 0)
             {
                 let service = QuoteConsumer();
@@ -172,11 +200,14 @@ class WatchListViewController: BaseTableViewController
                     service.GetStockPriceAndChange(stockEntity)
                     
                 }
+                print("------------\(NSThread.currentThread().valueForKeyPath("private.seqNum")!.integerValue)")
+            
+                //try context.save()
             }
         }
         catch
         {
-            print("Failed to fetch");
+            print("Failed to fetch / failed to save");
         }
         
         
@@ -190,14 +221,16 @@ class WatchListViewController: BaseTableViewController
     {
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0))
             {
-            if(background != nil){ background!(); }
             
+            if(background != nil){ background!(); }
+                
             let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
             dispatch_after(popTime, dispatch_get_main_queue()) {
                 if(completion != nil){ completion!(); }
+               
             }
         }
     }
     
-    
+
 }
